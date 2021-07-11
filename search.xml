@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>Cookies</title>
+      <link href="/Technology/JS/2021/07/12/cookies/"/>
+      <url>/Technology/JS/2021/07/12/cookies/</url>
+      
+        <content type="html"><![CDATA[<p><img src="/images/cookies.png" alt="Cookies"></p><h1>1. Cookies là gì?</h1><p>Là 1 file dữ liệu nhỏ (tối đa là 4093kb) được server trả về và lưu trong trình browser của người dùng.</p><p>Mỗi khi request lên server thì cookie (chỉ key và value, còn những data khác: httpOnly, sameSite… sẽ không được gửi lên) của server đó cũng sẽ được gửi lên cùng.</p><p>Vì thế, nên ưu tiên save thông tin mà server không cần dùng vào localstorage, sessionstorage, indexeddb để tránh việc gửi data thừa lên server.</p><p>Có 3 mục đích chính khi dùng cookies:</p><ul><li>Quản lý phiên làm việc: thông tin đăng nhập, giỏ hàng…</li><li>Thông tin về cá nhân: tùy chọn giao diện, cài đặt…</li><li>Theo dõi, phân tích hành vi của người dùng</li></ul><h1>2. Các loại cookies.</h1><p>Có 2 loại cookies:</p><ul><li>Session Cookies: Cookies sẽ bị xóa khi trình duyệt bị đóng.</li><li>Persistent Cookies: Cookies sẽ bị xóa khi bị hết hạn hoặc bị xóa thủ công</li></ul><p>Khi tạo cookies nếu không set expire date hoặc max-age thì đó là session cookies, còn ngược lại là Persistent cookies</p><h1>3. Các thành phần có trong Cookie</h1><blockquote><ul><li>name : String</li><li>value : String</li><li>httpOnly : Boolean</li><li>Secure : Boolean</li><li>maxAge : Option[Int]</li><li>sameSite : Option[SameSite]</li><li>domain : Option[String]</li><li>path : String</li></ul></blockquote><p><code>name</code> và <code>value</code> là giá trị thông tin cookie cần lưu.</p><blockquote><p>VD: name = access_tokenvalue = Bearer MTIzNDU2Nzphc2RmZw==</p></blockquote><p><code>httpOnly</code>: Đảm bảo Cookie chỉ được sử dụng trong 1 HTTP. Sẽ không thể dùng Javascript để lấy được thông tin cookies (document.cookie). Với httpOnly có thể prevent tấn công XSS từ hacker</p><p><code>Secure</code>: Đảm bảo Cookies luôn được mã hóa khi chuyển từ Client lên Server bằng cách chỉ gửi Cookies đi nếu kết nối SSL được sử dụng (Https), với Http Cookie sẽ không được gửi</p><p><code>maxAge</code>: thời gian tồn tại của Cookie. được tính bằng giây (s).</p><blockquote><p>VD: maxAge = Some ( 1 * 60 * 60)</p></blockquote><p>Chú ý: Nếu giá trị expires cũng được define thì maxAge sẽ được ưu tiên cao hơn =&gt; thời gian tồn tại sẽ tính theo maxAge</p><p><code>Samesite</code>: Giúp bảo vệ khỏi tấn công Cross-site request forgery attacks (CSRF). Có 3 giá trị: Strick, Lax, None</p><p><code>Domain</code>: Với thuộc tính này sẽ giúp define cho việc cookie sẽ được lưu cho những domain nào.</p><blockquote><p>VD: có 3 domain như bên dưới.</p><ul><li><a href="http://batdongsan.com">batdongsan.com</a></li><li><a href="http://aip-frontend-dev.batdongsan.com">aip-frontend-dev.batdongsan.com</a></li><li><a href="http://aip-cms-dev.batdongsan.com">aip-cms-dev.batdongsan.com</a></li></ul><p>Note 1 : Mặc định nếu thuộc tính domain để trống thì các cookie sẽ không được share cho nhau. Cookie chỉ được sử dụng với duy nhất domain mà tạo ra nó</p><p>Note 2: Nếu domain = Some(“.batdongsan.com”) hoặc Some(“<a href="http://batdongsan.com">batdongsan.com</a>”) thì cookie của cả 3 domain sẽ được dùng chung. chỉ cần 1 domain thay đổi cookie là những domain khác cũng nhận được sự thay đổi này</p><p>Path: Với thuộc tính này sẽ define những path nào mới được dùng cookie. Mặc định sẽ là “/”</p><p>VD: path=”/admin” thì chỉ khi nào request từ <a href="http://domain.com/admin">domain.com/admin</a> thì cookie mới được kèm theo, còn <a href="http://domain.com/user">domain.com/user</a> thì không</p></blockquote><h1>4. Cách tạo Cookie</h1><ul><li>Tạo bằng webserver: tomcat, nginx…</li><li>Tạo bằng framework: Play framework, spring…</li><li>Tạo bằng JS: document.cookie=”access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9″</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Technology </category>
+          
+          <category> JS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+            <tag> Scala </tag>
+            
+            <tag> JS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>
