@@ -4,6 +4,39 @@
   
     
     <entry>
+      <title>Encoding</title>
+      <link href="/Technology/common/2021/07/14/encoding/"/>
+      <url>/Technology/common/2021/07/14/encoding/</url>
+      
+        <content type="html"><![CDATA[<p><img src="/images/unicode.png" alt="Unicode"></p><h1>1.Thuật ngữ</h1><ul><li><p>encode: dùng 1 thứ gì đó để để thể hiện cho 1 thứ khác. VD: 01100010 là b</p></li><li><p>Encoding: là tập hợp các quy tắc để thực hiện việc chuyển đổi đó. VD: mã hóa ký tự sang bit</p></li><li><p>decode: từ bit giải mã sang ký tự</p></li><li><p>character set, charset: tập hợp các ký tự có thể được encode</p></li><li><p>code page: là bảng mapping bit với ký tự</p></li></ul><h1>2.Overview</h1><p>Máy tính chỉ có thể làm việc và hiểu được với bit.</p><p>Để biểu diễn bất cứ thứ gì thì ta cần phải có quy tắc để chuyển đổi chúng thành bit và ngược lại. Quy tắc đó chính là encoding scheme (lược đồ mã hóa) gọi tắt là encoding.</p><blockquote><p>VD: trong encoding ASCII thì: 1100010 là b ; 01101001 là i ; 01110100 là t</p></blockquote><p>Vì 1 byte(8 bits) là không đủ để mapping cho tất cả các ngôn ngữ trên thế giới (tiếng Trung, Nhật, Ấn Độ, Pháp…) nên người ta đã tạo rất nhiều loại encoding phù hợp với ngôn ngữ của họ. Và họ đã nghĩ tới việc tăng 1 ký tự tương ứng với 2 bytes (16 bits) VD: BIG-5, GB18030</p><p>Con người có thể dùng hệ bát phân, thập phân và thập lục phân để viết cho gọn. Còn máy tính luôn luôn sử dụng hệ nhị phân. Quá trình đóng gói và truyền qua internet cũng là tổ hợp các gói tin và gửi đi.</p><h1>3.Unicode</h1><p>Unicode ra đời để hợp nhất tất cả các chuẩn mã. Unicode là 1 encode schema nhưng không phải là 1 loại encoding. Nó tạo ra 1 code page chứa đến 1,114,112 ký tự. Nó có thể biểu diễn cho tất cả các ngôn ngữ, ký tự trên thế giới.</p><p>Bài toán đặt ra: để biểu diễn hết tất cả các ký tự trong unicode, nếu encoding dùng 2 bytes (2^16 ký tự) thì không đủ. còn 3 bytes (2^24) thì đủ nhưng ngta không dùng 3 bytes. nên 4 bytes đã được chọn.</p><p>Với encoding UTF-32 sẽ mã hóa mọi ký tự bằng 4 bytes. Nhưng như thế nó quá tốn kém trong việc lưu trữ (có thể file size lớn lên 4 lần).</p><p>UTF-16 và UTF-8 là 2 loại encoding đa chiều dài nên sẽ tối ưu hơn.</p><ul><li>Với UTF- 8: Nếu ký tự chỉ cần 1 byte thì nó sẽ mã hóa bằng 1 byte…Nếu cần 4 bytes nó sẽ mã hóa bằng 4 bytes. Khi giải mã thì byte đầu tiên trong chuỗi (bit có trọng số cao nhất – MSB) sẽ dùng để xác định số byte cấu thành ký tự.</li><li>UTF-16: Cũng tương tự như UTF-8 nhưng nó sẽ dùng ít nhất 2 bytes, và có thể tăng lên 4 bytes.</li></ul><h1>4.Chọn sai encoding khi mở 1 văn bản</h1><p>Việc biết 1 văn bản được encoding bằng encoding nào rất là khó. chỉ có thể dựa vào suy đoán.</p><p>Khi mở văn bản sai encoding có thể sẽ ảnh hưởng đến nội dung của văn bản. Vì khi mở văn bản. Có thể các editor có thể âm thầm thay thế những bytes mà nó không nhận diện ra được bằng ký tự ? hoặc � (thậm chí là loại bỏ bytes đó đi). Từ đó không thể khôi phục lại được dữ liệu ban đầu.</p><p>Nếu muốn convert từ encoding này sang encoding khác thì cần dùng các phần mềm chuyên dụng để mapping lại cái giá trị tương ứng trong code page của từng loại.</p><h1>5.UTF-8 và ASCII</h1><p>UTF-8 tương thích hoàn toàn với ASCII.</p><p>Mọi ký tự trong ASCII đều tương đương với giá trị trong UTF-8. Những ký tự không có trong ASCII sẽ có từ 2 bytes trở lên.</p><p>Mọi String trong Javascript đều được encoding chỉ bởi UTF-16</p><p>Ngày nay, UTF-8 được coi là tiêu chuẩn. Vì nó mã hoá gần như mọi ký tự bạn cần, tương thích ngược với và khá hiệu quả về mặt bộ nhớ đối với hầu hết các trường hợp.</p><h1>6.Refer</h1><ul><li><a href="https://kunststube.net/encoding/">https://kunststube.net/encoding/</a></li><li><a href="https://viblo.asia/p/nhung-kien-thuc-co-ban-nhat-ma-bat-cu-lap-trinh-vien-nao-cung-phai-biet-ve-encoding-va-character-set-phan-2-07LKXNg8lV4">https://viblo.asia/p/nhung-kien-thuc-co-ban-nhat-ma-bat-cu-lap-trinh-vien-nao-cung-phai-biet-ve-encoding-va-character-set-phan-2-07LKXNg8lV4</a></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Technology </category>
+          
+          <category> common </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+            <tag> Scala </tag>
+            
+            <tag> JS </tag>
+            
+            <tag> Technology </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Cookies</title>
       <link href="/Technology/JS/2021/07/12/cookies/"/>
       <url>/Technology/JS/2021/07/12/cookies/</url>
@@ -27,6 +60,8 @@
             <tag> Scala </tag>
             
             <tag> JS </tag>
+            
+            <tag> Technology </tag>
             
         </tags>
       
