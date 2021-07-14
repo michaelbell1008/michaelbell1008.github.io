@@ -19,9 +19,13 @@ Table có nhiều .."><meta name="generator" content="Hexo 5.4.0"></head><body c
 <li>Column ít giá trị null</li>
 <li>Column thường được sử dụng làm điều kiện khi truy vấn</li>
 <li>Nên đánh index trên khóa ngoại</li>
-<li>Selectivity cao (= cardinality/(number of records) * 100% )</li>
+<li>Selectivity cao (= cardinality/(number of records) * 100% )
+=&gt; Những column Unique, Sorted</li>
 </ul>
-<p>=&gt; Những column Unique, Sorted</p>
+<blockquote>
+<p>cardinality: là số lượng bản ghi duy nhất xuất hiện trong table cho column đó.
+Ví dụ: table Employee với column sex, cột này chỉ có thể có 2 giá trị là Male và Female, như vậy cardinality cho column sex sẽ là 2, vì ta chỉ có 2 giá trị duy nhất xuất hiện ở cột column</p>
+</blockquote>
 <h1>3. Các loại index thường dùng</h1>
 <ul>
 <li>Btree Index (default và phổ biến nhất)</li>
@@ -36,15 +40,15 @@ Table có nhiều .."><meta name="generator" content="Hexo 5.4.0"></head><body c
 <p><img src="/images/b-tree-index.png" alt="B-tree-index"></p>
 <ul>
 <li>Là index mặc định trong Database</li>
+<li>Index sẽ bị xóa khi table bị xóa</li>
 <li>Gồm 3 phần: Root, Branch, Leaf</li>
 </ul>
 <blockquote>
 <p>Leaf gồm:</p>
 <ul>
-<li>Index entry header</li>
-<li>Key column length</li>
-<li>Key column value</li>
-<li>ROWID</li>
+<li>Index entry header: thông tin lưu trữ số column và thông tin khoá của các hàng trong bảng.</li>
+<li>Key column length_value pair: chứa thông tin về kích thước column tham gia vào khoá và tiếp theo là kích thước của đó.</li>
+<li>ROWID: là giá trị của ROWID chứa giá trị khoá của index</li>
 </ul>
 </blockquote>
 <blockquote>
@@ -74,7 +78,7 @@ Table có nhiều .."><meta name="generator" content="Hexo 5.4.0"></head><body c
 <p>Tại sao cần rebuild:</p>
 <blockquote>
 <ul>
-<li>Height index càng nhỏ thì tìm càng nhanh</li>
+<li>Height index càng nhỏ thì tìm càng nhanh. Nếu Height = 3 thì khi hoạt động index cần phải đọc ít nhất 3 block là root block, branch block và leaf block</li>
 <li>Việc delete, update dữ liệu nhiều =&gt; deleted leaf nhiều =&gt; tree mất cân bằng</li>
 </ul>
 </blockquote>
@@ -100,8 +104,13 @@ ANALYZE TABLE &lt;TBL_NAME&gt; COMPUTE STATISTICS</li>
 <li>Rebuild Index: ALTER INDEX DEPT_LOCATION_IX REBUILD [ONLINE];</li>
 </ul>
 </blockquote>
+<p>Note:</p>
+<ul>
+<li>Thông thường trong khi tạo index, các câu lệnh DML tác động lên cột dữ liệu có liên quan đều tạm thời không thực hiện được cho đến khi hoàn tất việc tạo index.</li>
+<li>Để có thể cho phép thực hiện câu lệnh DML tác động lên các cột dữ liệu được index, Oracle có hỗ trợ Index online (Index trực tuyến) khi này, ta cần bổ sung thêm mệnh đề ONLINE vào trong câu lệnh.</li>
+</ul>
 <h1>5. Refer</h1>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://www.cs.usfca.edu/~galles/visualization/BPlusTree.html">https://www.cs.usfca.edu/~galles/visualization/BPlusTree.html</a></li>
 </ul>
-</article><section class="jump-container is-flex is-justify-content-space-between my-6"><!-- em is empty placeholder--><em></em><a class="button is-default" href="/Technology/common/2021/07/14/encoding/" title="Encoding"><span class="has-text-weight-semibold">Next: Encoding</span><i class="iconfont icon-next ml-2 has-text-grey"></i></a></section></div></div></main></main><footer class="is-flex is-flex-direction-column is-align-items-center is-flex-shrink-0 is-family-serif"><section class="sns-container"><!-- Github--><a title="github" target="_blank" rel="noopener nofollow" href="//github.com/michaelbell1008"><i class="iconfont icon-github"></i></a><!-- Ins--><!-- RSS--><!-- 知乎--><!-- 领英--><a title="linkedin" target="_blank" rel="noopener nofollow" href="//www.linkedin.com/in//nguyen-chuong-2768a5124/"><i class="iconfont icon-linkedin"></i></a><!-- 脸书--><a title="facebook" target="_blank" rel="noopener nofollow" href="//www.facebook.com//ChuongNguyen1008"><i class="iconfont icon-tian7_facebook"></i></a></section><p><span>Copyright ©</span><span> Michael Bell 2021</span></p><div class="is-flex is-justify-content-center is-flex-wrap-wrap"><p class="is-flex is-justify-content-center"></p><span></span></div></footer><script async defer src="https://buttons.github.io/buttons.js"></script><script src="/js/post.js"></script></body></html>
+</article><section class="jump-container is-flex is-justify-content-space-between my-6"><!-- em is empty placeholder--><a class="button is-default" href="/Technology/Oracle/MySQL/2021/07/14/optimizer-oracle/" title="Optimizer trong Oracle"><i class="iconfont icon-prev mr-2 has-text-grey"></i><span class="has-text-weight-semibold">Previous: Optimizer trong Oracle</span></a><a class="button is-default" href="/Technology/common/2021/07/14/encoding/" title="Encoding"><span class="has-text-weight-semibold">Next: Encoding</span><i class="iconfont icon-next ml-2 has-text-grey"></i></a></section></div></div></main></main><footer class="is-flex is-flex-direction-column is-align-items-center is-flex-shrink-0 is-family-serif"><section class="sns-container"><!-- Github--><a title="github" target="_blank" rel="noopener nofollow" href="//github.com/michaelbell1008"><i class="iconfont icon-github"></i></a><!-- Ins--><!-- RSS--><!-- 知乎--><!-- 领英--><a title="linkedin" target="_blank" rel="noopener nofollow" href="//www.linkedin.com/in//nguyen-chuong-2768a5124/"><i class="iconfont icon-linkedin"></i></a><!-- 脸书--><a title="facebook" target="_blank" rel="noopener nofollow" href="//www.facebook.com//ChuongNguyen1008"><i class="iconfont icon-tian7_facebook"></i></a></section><p><span>Copyright ©</span><span> Michael Bell 2021</span></p><div class="is-flex is-justify-content-center is-flex-wrap-wrap"><p class="is-flex is-justify-content-center"></p><span></span></div></footer><script async defer src="https://buttons.github.io/buttons.js"></script><script src="/js/post.js"></script></body></html>
