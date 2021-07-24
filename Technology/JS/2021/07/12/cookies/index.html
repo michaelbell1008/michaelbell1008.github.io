@@ -36,14 +36,16 @@ Vì thế, nên ưu tiên save thông tin mà server không cần dùng vào loc
 </blockquote>
 <p><code>name</code> và <code>value</code> là giá trị thông tin cookie cần lưu.</p>
 <blockquote>
-<p>VD: name = access_token
-value = Bearer MTIzNDU2Nzphc2RmZw==</p>
+<pre><code>  name = access_token
+  value = Bearer MTIzNDU2Nzphc2RmZw==
+</code></pre>
 </blockquote>
 <p><code>httpOnly</code>: Đảm bảo Cookie chỉ được sử dụng trong 1 HTTP. Sẽ không thể dùng Javascript để lấy được thông tin cookies (document.cookie). Với httpOnly có thể prevent tấn công XSS từ hacker</p>
 <p><code>Secure</code>: Đảm bảo Cookies luôn được mã hóa khi chuyển từ Client lên Server bằng cách chỉ gửi Cookies đi nếu kết nối SSL được sử dụng (Https), với Http Cookie sẽ không được gửi</p>
 <p><code>maxAge</code>: thời gian tồn tại của Cookie. được tính bằng giây (s).</p>
 <blockquote>
-<p>VD: maxAge = Some ( 1 * 60 * 60)</p>
+<pre><code>  maxAge = Some ( 1 * 60 * 60)
+</code></pre>
 </blockquote>
 <p>Chú ý: Nếu giá trị expires cũng được define thì maxAge sẽ được ưu tiên cao hơn =&gt; thời gian tồn tại sẽ tính theo maxAge</p>
 <p><code>Samesite</code>: Giúp bảo vệ khỏi tấn công Cross-site request forgery attacks (CSRF). Có 3 giá trị: Strick, Lax, None</p>

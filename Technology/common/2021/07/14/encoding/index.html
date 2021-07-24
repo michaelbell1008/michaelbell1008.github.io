@@ -42,7 +42,11 @@ Máy tính chỉ có thể .."><meta name="generator" content="Hexo 5.4.0"></hea
 <p>Máy tính chỉ có thể làm việc và hiểu được với bit.</p>
 <p>Để biểu diễn bất cứ thứ gì thì ta cần phải có quy tắc để chuyển đổi chúng thành bit và ngược lại. Quy tắc đó chính là encoding scheme (lược đồ mã hóa) gọi tắt là encoding.</p>
 <blockquote>
-<p>VD: trong encoding ASCII thì: 1100010 là b ; 01101001 là i ; 01110100 là t</p>
+<p>VD: trong encoding ASCII thì:</p>
+<pre><code>   1100010 là b 
+  01101001 là i 
+  01110100 là t
+</code></pre>
 </blockquote>
 <p>Vì 1 byte(8 bits) là không đủ để mapping cho tất cả các ngôn ngữ trên thế giới (tiếng Trung, Nhật, Ấn Độ, Pháp…) nên người ta đã tạo rất nhiều loại encoding phù hợp với ngôn ngữ của họ. Và họ đã nghĩ tới việc tăng 1 ký tự tương ứng với 2 bytes (16 bits) VD: BIG-5, GB18030</p>
 <p>Con người có thể dùng hệ bát phân, thập phân và thập lục phân để viết cho gọn. Còn máy tính luôn luôn sử dụng hệ nhị phân. Quá trình đóng gói và truyền qua internet cũng là tổ hợp các gói tin và gửi đi.</p>
