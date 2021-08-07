@@ -97,7 +97,8 @@ dữ liệu.</p>
 </ul>
 <blockquote>
 <p>Chú ý:
-Khi có <strong>ÍT NHẤT 2 THREAD</strong> (thread trên CPU A và CPU B) muốn thay đổi giá trị của shared object (<strong>count</strong>) thì có thể sẽ xảy ra <strong>race conditon</strong></p>
+Khi có <strong>ÍT NHẤT 2 THREAD</strong> (thread trên CPU A và CPU B) muốn thay đổi giá trị của shared object (<strong>count</strong>) thì có thể sẽ xảy ra <strong>race conditon</strong>.
+<strong>Thread safe</strong> là không có <strong>race condition</strong></p>
 </blockquote>
 <p><img src="/images/java-memory/race-condition.png" alt="race-condition"></p>
 <p>Để giải quyết tất cả vấn đề trên có thể dùng <code>block synchronized</code>. Block synchronized đảm bảo việc tất cả các biến được truy cập trong block này sẽ được đọc từ RAM,
