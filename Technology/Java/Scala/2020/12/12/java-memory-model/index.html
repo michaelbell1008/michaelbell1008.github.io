@@ -1,0 +1,110 @@
+<!DOCTYPE html><html class="appearance-auto" lang="en"><head><meta charset="UTF-8"><title>Memory Java</title><meta name="description"><meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, initial-scale=1"><!-- Google Analytics --><!-- End Google Analytics -->
+<!-- Baidu Analytics --><!-- End Baidu Analytics --><link rel="icon" href="/images/favicon.png"><link rel="stylesheet" href="/style/common/bulma.css"><link rel="stylesheet" href="/style/base.css"><link rel="stylesheet" href="/style/common/helper.css"><script src="/js/common.js"></script><link rel="stylesheet" href="/style/post.css"><link rel="stylesheet" href="/style/themes/highlight-theme-light.css"><script src="/js/highlight.pack.js"></script><meta name="description" content="1. Java Memory model có những gì?
+
+Java Memory model gồm 2 phần chính: các thread Stack và Heap.
+
+Mỗi thread chạy trong máy ảo JVM sẽ có 1 bộ nhớ thread Stack riêng và các thread khác nhau không thể truy cập giá trị thread stack của nhau.
+Các thread stack này chứa thông tin về những method mà thread cần gọi và local variables của từng method đang thực thi..."><meta name="generator" content="Hexo 5.4.0"></head><body class="is-flex is-flex-direction-column"><header class="header-widget is-flex-shrink-0 is-hidden-mobile"><div class="container is-fullhd is-flex is-justify-content-space-between is-align-items-center is-full-height"><section class="is-hidden-mobile is-flex-shrink-0"><h2><a href="/">Michael Bell's blog</a></h2></section><h3 class="is-hidden-mobile is-family-serif is-full-height is-flex is-align-items-center is-flex-shrink-0"><div class="is-full-height" id="postTopic"><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">Memory Java</p><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">Click back to the top</p></div></h3><aside class="is-flex-shrink-0"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3></aside></div></header><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-center is-hidden-tablet"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3></header><main><main class="container is-max-widescreen content section post-page pt-4 px-4"><div class="columns is-flex-desktop is-justify-content-center is-flex-direction-row-reverse"><div class="column is-3 is-hidden-mobile"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Java-Memory-model-co-nhung-gi"><span class="toc-text">1. Java Memory model có những gì?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Cau-truc-bo-nho-phan-cung"><span class="toc-text">2. Cấu trúc bộ nhớ phần cứng</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Bo-nho-phan-cung-tuong-tac-voi-JVM-memory"><span class="toc-text">3. Bộ nhớ phần cứng tương tác với JVM memory</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Refer"><span class="toc-text">4. Refer</span></a></li></ol></div><div class="column is-9"><header class="my-4"><a href="/tags/Java"><i class="tag post-item-tag">Java</i></a><a href="/tags/Scala"><i class="tag post-item-tag">Scala</i></a><a href="/tags/Technology"><i class="tag post-item-tag">Technology</i></a></header><h1 class="mt-0 mb-1 is-family-serif" id="postTitle">Memory Java</h1><time class="has-text-grey" datetime="2020-12-11T17:00:00.000Z">2020-12-12</time><article class="mt-2 post-content"><h2 id="1-Java-Memory-model-co-nhung-gi">1. Java Memory model có những gì?</h2>
+<p><img src="/images/java-memory/jvm-memory.png" alt="jvm-memory"></p>
+<p>Java Memory model gồm 2 phần chính: các thread Stack và Heap.</p>
+<ul>
+<li>Mỗi thread chạy trong máy ảo JVM sẽ có 1 bộ nhớ thread Stack riêng và các thread khác nhau không thể truy cập giá trị thread stack của nhau.</li>
+<li>Các thread stack này chứa thông tin về những method mà thread cần gọi và local variables của từng method đang thực thi. Mỗi thread stack sẽ có một bản clone local variables của method đó.</li>
+<li>Bộ nhớ Heap thì chứa tất cả các Object được tạo trong chương trình. Mọi thread có thể dùng chung dữ liệu lưu trong Heap.</li>
+<li>Nếu local variable là kiểu primitive =&gt; biến sẽ lưu trong thread stack.</li>
+<li>Nếu trong Object có nhiều method và trong method có các biến local. thì các biến local đó cũng được lưu trong Thread stack.</li>
+<li>Nếu local variable tham chiếu đến một Object =&gt; tham chiếu được lưu trong thread Stack, giá trị Object được lưu trong Heap</li>
+<li>Các attributes của Object sẽ luôn luôn được lưu cùng Object đó trong Heap mà không cần quan tâm đến type of attribute.</li>
+</ul>
+<p><img src="/images/java-memory/jvm-memory-mapping.png" alt="jvm-memory-mapping"></p>
+<p><strong>Giải thích diagram</strong></p>
+<ul>
+<li><code>local variable 1</code> ở cả 2 thread stack là biến primitive.</li>
+<li><code>local variable 2</code> ở cả 2 thread stack đều tham chiếu đến <strong>Object 3</strong> được lưu trong Heap. <strong>Object 3</strong> lại có 2 biến local có giá trị là <strong>Object 2</strong> và <strong>Object 4</strong></li>
+<li><code>local variable 1</code> ở methodTwo() trong 2 thread stack tham chiếu đến hai Object khác nhau lưu trong Heap là <strong>Object 1</strong> và <strong>Object 5</strong></li>
+</ul>
+<blockquote>
+<pre><code>public class MyRunnable implements Runnable() &#123;
+  public void run() &#123;
+    methodOne();
+  &#125;
+
+  public void methodOne() &#123;
+    int localVariable1 = 45;
+    MySharedObject localVariable2 = MySharedObject.sharedInstance;
+    //... do more with local variables.
+    methodTwo();
+  &#125;
+
+  public void methodTwo() &#123;
+    //Mỗi thread sẽ tạo mới Object và lưu trong Heap.
+    Integer localVariable1 = new Integer(99); 
+    //... do more with local variable.
+  &#125;
+&#125;
+
+public class MySharedObject &#123;
+  //Do được định nghĩa là static nên chỉ có duy nhất một instant được tạo ra và lưu trong Heap
+  public static final MySharedObject sharedInstance = new MySharedObject();
+
+  public Integer object2 = new Integer(22);
+  public Integer object4 = new Integer(44);
+
+  // Mặc dù member1 và member2 có kiểu là primitive nhưng vì nó là attribute của Object,
+  // nên nó vẫn được lưu vào trong Heap cùng với Object cha.
+  // chỉ có local variables như localVariable1 mới được lưu trong thread Stack.
+  public long member1 = 12345;
+  public long member2 = 67890;
+&#125;
+</code></pre>
+</blockquote>
+<h2 id="2-Cau-truc-bo-nho-phan-cung">2. Cấu trúc bộ nhớ phần cứng</h2>
+<p><img src="/images/java-memory/hardware.png" alt="hardware"></p>
+<ul>
+<li>Một máy tính ngày nay thường có nhiều hơn 2 CPU. Mỗi CPU thường sẽ có 2 thread.</li>
+<li>Mỗi CPU sẽ có một vài các thanh ghi để làm bộ nhớ trong của CPU. Tốc độ đọc ghi trên các thanh ghi này là cực kỳ nhanh. Nhanh hơn rất nhiều so với đọc trên RAM.</li>
+<li>Mỗi CPU có thể sẽ có thêm 1 bộ nhớ cache, nhưng kích thước thường không được lớn lắm. Tốc độ đọc trên Cache cũng không nhanh bằng trên thanh ghi, nhưng vẫn là rất nhanh so với RAM.</li>
+<li>Việc lưu trữ, trao đổi data sẽ được chuyển qua lại giữa các bộ nhớ CPU Registers, CPU Cache Memory, RAM. CPU sẽ load một phần data trong RAM vào Cache. và cũng có thể sẽ load một phần
+data từ Cache vào CPU Registers để thực hiện các tính toán.</li>
+<li>Khi cần lưu data lại vào RAM thì CPU sẽ truyền data từ CPU Registers ngược lại cho Cache. Nhưng Cache sẽ không truyền ngay data về RAM,
+mà sẽ chờ đến khi CPU cần phải lưu những thứ khác trong Cache thì khi đó nó sẽ gửi data xuống RAM.</li>
+</ul>
+<h2 id="3-Bo-nho-phan-cung-tuong-tac-voi-JVM-memory">3. Bộ nhớ phần cứng tương tác với JVM memory</h2>
+<p><img src="/images/java-memory/hardware-mapping-jvm.png" alt="hardware-mapping-jvm"></p>
+<p>Cấu trúc bộ nhớ của JVM và máy tính là khác nhau. Các data của Thread stack, Heap đều có thể được lưu mooth phần trong CPU Registers, CPU Cache Memory, RAM. Vì thế có 2 vấn đề thường gặp:</p>
+<ul>
+<li>Visibility of thread updates (writes) to shared variables.</li>
+<li>Race conditions</li>
+</ul>
+<p>Xét ví dụ sau đây để làm rõ</p>
+<p><img src="/images/java-memory/visibility-shared-object.png" alt="visibility-shared-object"></p>
+<ul>
+<li>Biến <strong>count</strong> trong RAM có giá trị là 1.</li>
+<li>CPU A và CPU B load <strong>count</strong> lên Cache của chúng.</li>
+<li>CPU A tăng giá trị count của thêm 1 để count trong Cache của CPU A là 2. nhưng vì Cache chưa gửi về RAM nên count trong RAM vẫn là 1.</li>
+</ul>
+<blockquote>
+<p>Chú ý: Nếu muốn CPU A update lại <strong>count</strong> vào RAM ngay sau khi thay đổi <strong>count</strong> và các thread khác luôn luôn đọc biến <strong>count</strong> trực tiếp từ RAM thì
+chúng ta có thể khai báo biến với từ khóa <code>volatile</code>. Ví dụ:</p>
+<pre><code>public volatile int count = 1;
+</code></pre>
+<p>Tuy nhiên dùng <strong>volatile</strong> cũng chưa đủ an toàn. Vì khi CPU A đang tính toán và chuẩn bị update <strong>count</strong> = 2 về RAM thì CPU B đã load giá trị của <strong>count</strong> = 1 nên Cache. Khi đó vẫn làm sai lệch
+dữ liệu.</p>
+</blockquote>
+<ul>
+<li>Lúc này Cache của CPU B count vẫn có giá trị là 1 vì thread của CPU B không thể truy cập được Cache của CPU A</li>
+<li>CPU B tăng giá trị count của thêm 1 để count trong Cache của CPU A là 2. nhưng vì Cache chưa gửi về RAM nên count trong RAM vẫn là 1.</li>
+</ul>
+<blockquote>
+<p>Chú ý:
+Khi có <strong>ÍT NHẤT 2 THREAD</strong> (thread trên CPU A và CPU B) muốn thay đổi giá trị của shared object (<strong>count</strong>) thì có thể sẽ xảy ra <strong>race conditon</strong>.
+<strong>Thread safe</strong> là không có <strong>race condition</strong></p>
+</blockquote>
+<p><img src="/images/java-memory/race-condition.png" alt="race-condition"></p>
+<p>Để giải quyết tất cả vấn đề trên có thể dùng <code>block synchronized</code>. Block synchronized đảm bảo việc tất cả các biến được truy cập trong block này sẽ được đọc từ RAM,
+và khi thread rời khỏi block thì mọi thay đổi tới các biến sẽ được ghi vào RAM ngay lập tức. Sau đó những thread khác mới bắt đầu load data và tính toán</p>
+<h2 id="4-Refer">4. Refer</h2>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://tutorials.jenkov.com/java-concurrency/java-memory-model.html">http://tutorials.jenkov.com/java-concurrency/java-memory-model.html</a></li>
+</ul>
+</article><section class="jump-container is-flex is-justify-content-space-between my-6"><!-- em is empty placeholder--><a class="button is-default" href="/Book/2021/04/06/phi-ly-tri/" title="Phi Lý Trí"><i class="iconfont icon-prev mr-2 has-text-grey"></i><span class="has-text-weight-semibold">Previous: Phi Lý Trí</span></a><a class="button is-default" href="/Technology/scala/2020/11/02/implicit-scala/" title="Implicit in Scala"><span class="has-text-weight-semibold">Next: Implicit in Scala</span><i class="iconfont icon-next ml-2 has-text-grey"></i></a></section></div></div></main></main><footer class="is-flex is-flex-direction-column is-align-items-center is-flex-shrink-0 is-family-serif"><section class="sns-container"><!-- Github--><a title="github" target="_blank" rel="noopener nofollow" href="//github.com/michaelbell1008"><i class="iconfont icon-github"></i></a><!-- Ins--><!-- RSS--><!-- 知乎--><!-- 领英--><a title="linkedin" target="_blank" rel="noopener nofollow" href="//www.linkedin.com/in//nguyen-chuong-2768a5124/"><i class="iconfont icon-linkedin"></i></a><!-- 脸书--><a title="facebook" target="_blank" rel="noopener nofollow" href="//www.facebook.com//ChuongNguyen1008"><i class="iconfont icon-tian7_facebook"></i></a></section><p><span>Copyright ©</span><span> Michael Bell 2021</span></p><div class="is-flex is-justify-content-center is-flex-wrap-wrap"><p class="is-flex is-justify-content-center"></p><span></span></div></footer><script async defer src="https://buttons.github.io/buttons.js"></script><script src="/js/post.js"></script></body></html>

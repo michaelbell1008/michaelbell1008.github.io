@@ -1,0 +1,83 @@
+<!DOCTYPE html><html class="appearance-auto" lang="en"><head><meta charset="UTF-8"><title>String pool</title><meta name="description"><meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, initial-scale=1"><!-- Google Analytics --><!-- End Google Analytics -->
+<!-- Baidu Analytics --><!-- End Baidu Analytics --><link rel="icon" href="/images/favicon.png"><link rel="stylesheet" href="/style/common/bulma.css"><link rel="stylesheet" href="/style/base.css"><link rel="stylesheet" href="/style/common/helper.css"><script src="/js/common.js"></script><link rel="stylesheet" href="/style/post.css"><link rel="stylesheet" href="/style/themes/highlight-theme-light.css"><script src="/js/highlight.pack.js"></script><meta name="description" content="1. String là gì?
+Chúng ta chắc hẳn đã rất quen thuộc với String khi code Java. Với định nghĩa String từ Oracle như sau:
+
+Strings, which are widely used in Java programming, are a sequence of characters. In the Java programming language, strings are objects
+
+Có một vài chú ý với String như sau:
+
+String là 1 reference type
+Là immutable (không thể thay đổi đư.."><meta name="generator" content="Hexo 5.4.0"></head><body class="is-flex is-flex-direction-column"><header class="header-widget is-flex-shrink-0 is-hidden-mobile"><div class="container is-fullhd is-flex is-justify-content-space-between is-align-items-center is-full-height"><section class="is-hidden-mobile is-flex-shrink-0"><h2><a href="/">Michael Bell's blog</a></h2></section><h3 class="is-hidden-mobile is-family-serif is-full-height is-flex is-align-items-center is-flex-shrink-0"><div class="is-full-height" id="postTopic"><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">String pool</p><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">Click back to the top</p></div></h3><aside class="is-flex-shrink-0"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3></aside></div></header><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-center is-hidden-tablet"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3></header><main><main class="container is-max-widescreen content section post-page pt-4 px-4"><div class="columns is-flex-desktop is-justify-content-center is-flex-direction-row-reverse"><div class="column is-3 is-hidden-mobile"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-String-la-gi"><span class="toc-text">1. String là gì?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-String-pool-la-gi"><span class="toc-text">2. String pool là gì?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Cach-hoat-dong-cua-String-pool"><span class="toc-text">3. Cách hoạt động của String pool</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#a-Tao-String-moi-bang-String-literal"><span class="toc-text">a. Tạo String mới bằng String literal</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#b-Tao-String-moi-bang-new-operator"><span class="toc-text">b. Tạo String mới bằng new operator</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#c-Chung-ta-nen-tao-moi-1-String-bang-cach-nao"><span class="toc-text">c. Chúng ta nên tạo mới 1 String bằng cách nào?</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Vay-tai-sao-String-la-immutable"><span class="toc-text">4. Vậy tại sao String là immutable?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-Chu-y-voi-String-trong-Scala"><span class="toc-text">5. Chú ý với String trong Scala</span></a></li></ol></div><div class="column is-9"><header class="my-4"><a href="/tags/Java"><i class="tag post-item-tag">Java</i></a><a href="/tags/Scala"><i class="tag post-item-tag">Scala</i></a><a href="/tags/Technology"><i class="tag post-item-tag">Technology</i></a></header><h1 class="mt-0 mb-1 is-family-serif" id="postTitle">String pool</h1><time class="has-text-grey" datetime="2017-08-08T16:40:47.000Z">2017-08-08</time><article class="mt-2 post-content"><h2 id="1-String-la-gi">1. String là gì?</h2>
+<p>Chúng ta chắc hẳn đã rất quen thuộc với String khi code Java. Với định nghĩa <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/tutorial/java/data/strings.html">String</a> từ Oracle như sau:</p>
+<blockquote>
+<p>Strings, which are widely used in Java programming, are a sequence of characters. In the Java programming language, strings are objects</p>
+</blockquote>
+<p>Có một vài chú ý với String như sau:</p>
+<ul>
+<li>String là 1 reference type</li>
+<li>Là immutable (không thể thay đổi được giá trị, ô chỉ nhớ của n)</li>
+<li>Có thể tạo mới 1 String theo 2 cách:
+<ul>
+<li>String literal</li>
+<li>new operator</li>
+</ul>
+</li>
+</ul>
+<p>Bài toán đặt ra: vì String là immutable, khi tạo quá nhiều String, liệu có dễ xảy ra tràn bộ nhớ Heap không?
+=&gt; Câu trả lời chính là String Pool</p>
+<h2 id="2-String-pool-la-gi">2. String pool là gì?</h2>
+<ul>
+<li>String Pool là 1 phân vùng nhỏ nằm trong bộ nhớ Heap chứa các Strings.</li>
+<li>Nó được tạo ra với mục đích tối ưu lưu trữ và dùng vùng nhớ khi khai báo String từ đó giúp hạn chế tình trạng tràn bộ nhớ Heap</li>
+</ul>
+<h2 id="3-Cach-hoat-dong-cua-String-pool">3. Cách hoạt động của String pool</h2>
+<p><img src="/images/string-constant-pool-in-java.png" alt="string-constant-pool-in-java"></p>
+<h3 id="a-Tao-String-moi-bang-String-literal">a. Tạo String mới bằng String literal</h3>
+<p>JVM sẽ check trong String pool xem có ô nhớ nào có giá trị giống với giá trị cần tạo hay không? Nếu tồn tại trong pool rồi nó sẽ tham chiếu đến ô chỉ nhớ vừa tìm được, ngược lại, nếu không tìm thấy ô nhớ nào có giá trị giống giá trị cần tạo, JVM sẽ lưu giá trị mới vào trong pool và tiến hành trỏ vào ô chỉ nhớ mới tạo đó.</p>
+<blockquote>
+<p>Ví dụ:</p>
+<pre><code>  String s1 = “java”;
+  String s2 = “java”;
+  s1 == s2 //true
+</code></pre>
+<p>Khi khai báo s1, JVM tìm kiếm trong pool và không thấy có ô nhớ nào có giá trị là “java” cả. JMV sẽ tạo mới 1 ô nhớ trong pool có giá trị là “java”.</p>
+<p>Khi khai báo s2, JVM tìm kiếm trong pool và thấy có 1 ô nhớ có giá trị là “java” được JVM tạo ra trước đó khi khai báo s1. Vì thế JVM sẽ trỏ s2 vào ô chỉ nhớ vừa tìm được thay vì tạo ra 1 ô nhớ mới</p>
+</blockquote>
+<h3 id="b-Tao-String-moi-bang-new-operator">b. Tạo String mới bằng new operator</h3>
+<p>JVM sẽ luôn tạo ra 1 ô nhớ mới trong Heap memory (dù đã tồn tại những ô nhớ có cùng giá trị)</p>
+<blockquote>
+<p>Ví dụ:</p>
+<pre><code>  String s3 = new String(“java”);
+  String s4 = new String(“java”);
+  s3 == s4 //false
+</code></pre>
+<p>Khi khai báo s3 hay s4, JVM luôn luôn tạo ra 2 ô nhớ khác nhau trong Heap memory để tham chiếu đến.</p>
+</blockquote>
+<h3 id="c-Chung-ta-nen-tao-moi-1-String-bang-cach-nao">c. Chúng ta nên tạo mới 1 String bằng cách nào?</h3>
+<p>Chúng ta nên tạo mới một String bằng String literal vì chúng dễ đọc, ngắn gọn, tăng khả năng optimize của JVM. (mặc dù tạo bằng new operator sẽ nhanh hơn vì không phải kiểm tra trong String Pool)</p>
+<h2 id="4-Vay-tai-sao-String-la-immutable">4. Vậy tại sao String là immutable?</h2>
+<ul>
+<li>Với một Object là immutable sẽ giúp thread safe và khi làm việc multi-threading. Chúng sẽ không bị thay đổi bởi các thread dùng chung object.</li>
+<li>Các String được reference chung vào ô chỉ nhớ trong String Pool, nên nếu String là mutable sẽ dẫn đến sai giá trị của những biến khác đang được trỏ vào ô nhớ chung đó.</li>
+<li>Để sử dụng Hashcode caching. Khi tạo một String thì JDK sẽ tự động override lại hashCode() theo giá trị của String đó và lưu chúng vào bộ nhớ đệm và sử dụng lại trong những lần sau khi nó phải tính toán với giá trị tương tự.
+hashCode() sẽ được sử dụng với các Map implementation như HashMap, HashTable, HashSet… để so sánh giá trị của Object.</li>
+<li>Vấn đề về bảo mật. Khi String được sử dụng để lưu giá trị cho username, url, path… Khi các bước validate với String đó verified hợp lệ
+nhưng sau đó String được thay đổi thì rất nguy hiểm.</li>
+</ul>
+<blockquote>
+<pre><code>  boolean deleteProductBy(String ownername)&#123;
+  if (!isAdmin(ownername)) &#123;
+      throw new PermissionException();
+  &#125;
+      //ownername được thay đổi trước khi deleteAllProduct được gọi
+      deleteAllProduct(ownername)
+  &#125;
+</code></pre>
+</blockquote>
+<h2 id="5-Chu-y-voi-String-trong-Scala">5. Chú ý với String trong Scala</h2>
+<ul>
+<li>String trong Scala sẽ tương tứng với String trong Java</li>
+<li>Khi so sánh 2 String trong Scala sẽ dùng phương thức <code>==</code>. Phương thức này sẽ tiến hành check <code>null</code> trước sau đó sẽ gọi <code>equals</code> để so sánh.<br>
+Chính vì thế khi so sánh 1 String <code>== null</code> trong Scala sẽ không bị <code>NullPointerException</code>.</li>
+</ul>
+</article><section class="jump-container is-flex is-justify-content-space-between my-6"><!-- em is empty placeholder--><a class="button is-default" href="/Technology/Java/Scala/2017/11/01/string-vs-stringbuilder-stringbuffer/" title="String vs StringBuilder vs StringBuffer in Java"><i class="iconfont icon-prev mr-2 has-text-grey"></i><span class="has-text-weight-semibold">Previous: String vs StringBuilder vs StringBuffer in Java</span></a></section></div></div></main></main><footer class="is-flex is-flex-direction-column is-align-items-center is-flex-shrink-0 is-family-serif"><section class="sns-container"><!-- Github--><a title="github" target="_blank" rel="noopener nofollow" href="//github.com/michaelbell1008"><i class="iconfont icon-github"></i></a><!-- Ins--><!-- RSS--><!-- 知乎--><!-- 领英--><a title="linkedin" target="_blank" rel="noopener nofollow" href="//www.linkedin.com/in//nguyen-chuong-2768a5124/"><i class="iconfont icon-linkedin"></i></a><!-- 脸书--><a title="facebook" target="_blank" rel="noopener nofollow" href="//www.facebook.com//ChuongNguyen1008"><i class="iconfont icon-tian7_facebook"></i></a></section><p><span>Copyright ©</span><span> Michael Bell 2021</span></p><div class="is-flex is-justify-content-center is-flex-wrap-wrap"><p class="is-flex is-justify-content-center"></p><span></span></div></footer><script async defer src="https://buttons.github.io/buttons.js"></script><script src="/js/post.js"></script></body></html>
