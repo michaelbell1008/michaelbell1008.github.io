@@ -11,6 +11,7 @@ Các thread stack này chứa thông tin về những method mà thread cần g�
 <li>Mỗi thread chạy trong máy ảo JVM sẽ có 1 bộ nhớ thread Stack riêng và các thread khác nhau không thể truy cập giá trị thread stack của nhau.</li>
 <li>Các thread stack này chứa thông tin về những method mà thread cần gọi và local variables của từng method đang thực thi. Mỗi thread stack sẽ có một bản clone local variables của method đó.</li>
 <li>Bộ nhớ Heap thì chứa tất cả các Object được tạo trong chương trình. Mọi thread có thể dùng chung dữ liệu lưu trong Heap.</li>
+<li>Sau khi các method kết thúc, các giá trị lưu trong thread stack sẽ được xóa, nhưng data trong Heap thì vẫn còn. Nó sẽ được GC dọn sau.</li>
 <li>Nếu local variable là kiểu primitive =&gt; biến sẽ lưu trong thread stack.</li>
 <li>Nếu trong Object có nhiều method và trong method có các biến local. thì các biến local đó cũng được lưu trong Thread stack.</li>
 <li>Nếu local variable tham chiếu đến một Object =&gt; tham chiếu được lưu trong thread Stack, giá trị Object được lưu trong Heap</li>
