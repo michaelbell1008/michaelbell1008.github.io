@@ -137,7 +137,7 @@ call-stack: là một stack chứa các functions được thực thi.
   bar(); // &quot;oops, global&quot;
 </code></pre>
 </blockquote>
-<p>Ngay cả khi truyền hàm như một biến trong call back function thì <strong>implicit binding</strong> cũng không được áp dụng</p>
+<p>Khi được sử dụng trong call back function thì <strong>implicit binding</strong> cũng không được áp dụng.</p>
 <blockquote>
 <pre><code>  function foo() &#123;
       console.log( this.a );
