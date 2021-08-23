@@ -6,7 +6,7 @@
 call-site là vị trí đoạn code nơi mà function được gọi (không phải nơi được khai báo). Đây là thứ duy nhất mà this phụ thuộc vào.
 
 
-call-stack: là một stack chứa tên các functions được thực thi.
+call-stack: là một stack chứa các functions được thực thi.
 
 
 
@@ -15,7 +15,7 @@ call-stack: là một stack chứa tên các functions được thực thi.
       // call-site sẽ là global scope
 
       console.log( &amp;quot;baz&amp;quot; );
-      bar(); ..</p><a class="button is-default mt-2 has-text-weight-semibold" href="/Technology/JS/2019/01/16/this-in-javascript/">Read more</a></section></article><article class="post-item-card"><header class="is-relative is-flex"><div class="post-cover-backdrop is-hidden"><img src="/images/call-apply-bind-in-js.png" alt="loading.."></div><a class="post-cover-link has-text-centered skeleton" href="/Technology/JS/2019/01/03/call-bind-apply-in-js/"><img class="post-cover-img js-img-fadeIn" src="/images/call-apply-bind-in-js.png" alt="loading.." data-backdrop="true"></a></header><section class="content post-card-content p-4 pb-5"><header><a href="/tags/JS"><i class="tag post-item-tag">JS</i></a><a href="/tags/Technology"><i class="tag post-item-tag">Technology</i></a><a href="/tags/call"><i class="tag post-item-tag">call</i></a><a href="/tags/apply"><i class="tag post-item-tag">apply</i></a><a href="/tags/bind"><i class="tag post-item-tag">bind</i></a></header><h2 class="mt-4 mb-0 is-family-serif"><a href="/Technology/JS/2019/01/03/call-bind-apply-in-js/">Call, Apply, Bind trong JS</a></h2><time class="has-text-grey" datetime="2019-01-03T15:37:47.000Z">2019-01-03</time><p class="is-flex-grow-2 mt-2">
+      bar(); // c..</p><a class="button is-default mt-2 has-text-weight-semibold" href="/Technology/JS/2019/01/16/this-in-javascript/">Read more</a></section></article><article class="post-item-card"><header class="is-relative is-flex"><div class="post-cover-backdrop is-hidden"><img src="/images/call-apply-bind-in-js.png" alt="loading.."></div><a class="post-cover-link has-text-centered skeleton" href="/Technology/JS/2019/01/03/call-bind-apply-in-js/"><img class="post-cover-img js-img-fadeIn" src="/images/call-apply-bind-in-js.png" alt="loading.." data-backdrop="true"></a></header><section class="content post-card-content p-4 pb-5"><header><a href="/tags/JS"><i class="tag post-item-tag">JS</i></a><a href="/tags/Technology"><i class="tag post-item-tag">Technology</i></a><a href="/tags/call"><i class="tag post-item-tag">call</i></a><a href="/tags/apply"><i class="tag post-item-tag">apply</i></a><a href="/tags/bind"><i class="tag post-item-tag">bind</i></a></header><h2 class="mt-4 mb-0 is-family-serif"><a href="/Technology/JS/2019/01/03/call-bind-apply-in-js/">Call, Apply, Bind trong JS</a></h2><time class="has-text-grey" datetime="2019-01-03T15:37:47.000Z">2019-01-03</time><p class="is-flex-grow-2 mt-2">
 Mọi functions trong JS đều là Object. Và object Function sẽ gồm các thành phần:
 
 name: Là tên của function. Nếu không có name thì function sẽ là anonymous function
