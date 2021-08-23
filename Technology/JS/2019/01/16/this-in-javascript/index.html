@@ -119,7 +119,7 @@ call-stack: là một stack chứa các functions được thực thi.
 <p>Chú ý là chỉ có object cuối cùng trong call-stack mới ảnh hưởng đến call-site nên <code>obj1.a</code> sẽ không được tham chiếu trong trường hợp trên.</p>
 <h4 id="Implicit-Lost">Implicit Lost</h4>
 <p>Cũng có trường hợp <strong>Implicit binding</strong> không được áp dụng mặc dù functions được tạo hoặc chứa trong object. Khi này <strong>Default Binding</strong> sẽ được áp dụng</p>
-<p>Như ví dụ bên dưới, mặc dù<code>foo()</code> được chứa trong <code>obj</code> nhưng <code>bar</code> lại được gán bằng function <code>obj.foo</code>. Nên khi gọi <code>bar()</code> thì call-site của <code>foo()</code> lúc này sẽ là global</p>
+<p>Như ví dụ bên dưới, mặc dù<code>foo()</code> được chứa trong <code>obj</code> nhưng function <code>obj.foo</code> được gán bằng biến <code>bar</code> . Nên khi gọi <code>bar()</code> thì call-site của <code>foo()</code> lúc này sẽ là global</p>
 <blockquote>
 <pre><code>  function foo() &#123;
       console.log( this.a );
@@ -130,7 +130,7 @@ call-stack: là một stack chứa các functions được thực thi.
       foo: foo
   &#125;;
 
-  var bar = obj.foo;
+  var bar = obj.foo; // gán function vào variable
 
   var a = &quot;oops, global&quot;; // `a` also property on global object
 
@@ -177,6 +177,8 @@ call-stack: là một stack chứa các functions được thực thi.
 </blockquote>
 <p><strong>New binding</strong> có khả năng override <code>bind()</code> trong explicit (call() và apply() sẽ gọi function ngay lập tức nên không được xét).</p>
 <h2 id="3-Note">3. Note</h2>
+<ul>
+<li>
 <p>Để xác định được <code>this</code> là gì, ta cần phải xác định được chính xác call-site của function đó. Thứ tự ưu tiên của các rules để xác định call-site lần lượt là:</p>
 <ul>
 <li>Function được gọi với từ khóa <code>new</code>.</li>
@@ -184,8 +186,12 @@ call-stack: là một stack chứa các functions được thực thi.
 <li>Function được gọi với một context của object chứa nó</li>
 <li>Default binding. Với <strong>strict mode</strong> <code>this</code> là <code>undefined</code>, còn lại sẽ là global object.</li>
 </ul>
+</li>
+<li>
 <p>Các functions bình thường sẽ tuân theo 4 rules kể trên. Nhưng trong ES6 có một function đặc biệt là <strong>arrow-fucntion</strong>.
 <strong>Arrow function</strong> sẽ có call-site của nơi bên ngoài gần nó nhất (function hoặc global).</p>
+</li>
+</ul>
 <blockquote>
 <pre><code>  function foo() &#123;
       // return an arrow function
