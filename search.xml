@@ -22,7 +22,7 @@
             
             <tag> Book </tag>
             
-            <tag> Vi giam doc mot phut </tag>
+            <tag> ViGiamDocMotPhut </tag>
             
         </tags>
       
@@ -49,9 +49,9 @@
             
             <tag> Book </tag>
             
-            <tag> Jamies Holmes </tag>
+            <tag> JamiesHolmes </tag>
             
-            <tag> Suc manh cua su mo ho va bi an </tag>
+            <tag> SucManhCuaSuMoHoVaBiAn </tag>
             
         </tags>
       
@@ -78,9 +78,9 @@
             
             <tag> Book </tag>
             
-            <tag> Dan Ariely </tag>
+            <tag> DanAriely </tag>
             
-            <tag> Phi ly tri </tag>
+            <tag> PhiLyTri </tag>
             
         </tags>
       
@@ -109,11 +109,11 @@
       
         <tags>
             
-            <tag> Java </tag>
+            <tag> scala </tag>
             
-            <tag> Scala </tag>
+            <tag> technology </tag>
             
-            <tag> Technology </tag>
+            <tag> java </tag>
             
         </tags>
       
@@ -140,9 +140,9 @@
       
         <tags>
             
-            <tag> Technology </tag>
+            <tag> Scala </tag>
             
-            <tag> scala </tag>
+            <tag> Technology </tag>
             
         </tags>
       
@@ -169,13 +169,13 @@
       
         <tags>
             
-            <tag> Java </tag>
+            <tag> scala </tag>
             
-            <tag> Scala </tag>
+            <tag> js </tag>
             
-            <tag> JS </tag>
+            <tag> technology </tag>
             
-            <tag> Technology </tag>
+            <tag> java </tag>
             
         </tags>
       
@@ -202,9 +202,9 @@
       
         <tags>
             
-            <tag> Technology </tag>
+            <tag> mysql </tag>
             
-            <tag> Mysql </tag>
+            <tag> technology </tag>
             
         </tags>
       
@@ -233,11 +233,11 @@
       
         <tags>
             
-            <tag> Technology </tag>
+            <tag> mysql </tag>
             
-            <tag> Mysql </tag>
+            <tag> technology </tag>
             
-            <tag> Oracle </tag>
+            <tag> oracle </tag>
             
         </tags>
       
@@ -268,7 +268,7 @@
             
             <tag> Technology </tag>
             
-            <tag> this </tag>
+            <tag> This </tag>
             
         </tags>
       
@@ -299,11 +299,11 @@
             
             <tag> Technology </tag>
             
-            <tag> call </tag>
+            <tag> Call </tag>
             
-            <tag> apply </tag>
+            <tag> Apply </tag>
             
-            <tag> bind </tag>
+            <tag> Bind </tag>
             
         </tags>
       
@@ -334,7 +334,7 @@
             
             <tag> Technology </tag>
             
-            <tag> First class function </tag>
+            <tag> FirstClassFunction </tag>
             
         </tags>
       
@@ -361,13 +361,44 @@
       
         <tags>
             
+            <tag> scala </tag>
+            
+            <tag> js </tag>
+            
+            <tag> technology </tag>
+            
+            <tag> java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Design Pattern</title>
+      <link href="/Technology/Java/2018/01/05/design-pattern/"/>
+      <url>/Technology/Java/2018/01/05/design-pattern/</url>
+      
+        <content type="html"><![CDATA[<p><img src="/images/design-pattern/design-pattern.png" alt="design-pattern"></p><h2 id="1-Design-Pattern-la-gi">1. Design Pattern là gì?</h2><blockquote><p><strong>In software engineering, a design pattern is a general repeatable solution to a commonly occurring problem in software design.It is a description or template for how to solve a problem that can be used in many different situations.</strong></p><p>Nghĩa là: Một design pattern là một giải pháp có thể lặp lại chung cho các vấn đề thưởng gặp trong thiết kế phần mềm.Nó là một bản mô tả hoặc template về cách giải quyết vấn để có thể được sử dụng trong nhiều trường hợp khác nhau.</p></blockquote><p>Theo Gang of Four, 2 quy tắc quan trọng nhất trong thiết kế phần mềm hướng đối tượng:</p><ul><li>Program to an interface, not an implementation.</li><li>Prefer composition over inheritance.</li></ul><p>Lợi ích:</p><ul><li>Giúp code dễ thay đổi, nâng cấp, sửa chữa.</li><li>Giúp code dễ hiểu, ít bugs.</li><li>Giúp reuse code hiệu quả.</li><li>Tăng tốc độ phát triển phần mềm.</li></ul><h2 id="2-Cac-loai-Patterns">2. Các loại Patterns</h2><h3 id="a-Creational-design-patterns">a. Creational design patterns</h3><p>Giúp trong việc khởi tạo các class và object. Nó có thể chia thành 2 phần: <strong>class-creation patterns</strong> and <strong>object-creational patterns</strong>.</p><ul><li>Factory Method</li><li>Abstract Factory</li><li>Builder</li><li>Prototype</li><li>Singleton</li></ul><h3 id="b-Structural-design-patterns">b. Structural design patterns</h3><p>Giúp chúng ta thiết lập, định nghĩa quan hệ giữa các đối tượng với nhau</p><ul><li>Adapter</li><li>Bridge</li><li>Composite</li><li>Decorator</li><li>Facade</li><li>Flyweight</li><li>Proxy</li></ul><h3 id="c-Behavioral-design-patterns">c. Behavioral design patterns</h3><p>Thiết kế liên quan đến các hành vi của các đối tượng.</p><ul><li>Interpreter</li><li>Template Method</li><li>Chain of Responsibility</li><li>Command</li><li>Iterator</li><li>Mediator</li><li>Memento</li><li>Observer</li><li>State</li><li>Strategy</li><li>Visitor</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Technology </category>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
             <tag> Java </tag>
             
-            <tag> Scala </tag>
-            
-            <tag> JS </tag>
-            
             <tag> Technology </tag>
+            
+            <tag> DesignPattern </tag>
             
         </tags>
       
@@ -396,11 +427,11 @@
       
         <tags>
             
-            <tag> Java </tag>
+            <tag> scala </tag>
             
-            <tag> Scala </tag>
+            <tag> technology </tag>
             
-            <tag> Technology </tag>
+            <tag> java </tag>
             
         </tags>
       
@@ -429,11 +460,11 @@
       
         <tags>
             
-            <tag> Java </tag>
+            <tag> scala </tag>
             
-            <tag> Scala </tag>
+            <tag> technology </tag>
             
-            <tag> Technology </tag>
+            <tag> java </tag>
             
         </tags>
       
@@ -446,7 +477,7 @@
       <link href="/Technology/Java/2017/08/24/static-in-java/"/>
       <url>/Technology/Java/2017/08/24/static-in-java/</url>
       
-        <content type="html"><![CDATA[<p><img src="/images/static-in-java.png" alt="static-in-java"></p><h2 id="1-Tu-khoa-static">1. Từ khóa static</h2><ul><li>static mục đích chính là để quản lý bộ nhớ tốt hơn.</li><li>static được sử dụng trong 4 trường hợp sau:<ul><li>static variables</li><li>static methods</li><li>static blocks of code</li><li>static nested class</li></ul></li></ul><h2 id="2-Static-variable">2. Static variable</h2><ul><li>Khi khai báo một biến với static thì biến đó là biến static.</li><li>Biến static thuộc về class chứ không phải instance nên nó có thể truy cập trực tiếp bằng tên của class mà không cần object.</li><li>Biến static được chia sẻ chung cho tất cả các instance của class đó.</li><li>Biến static chỉ được cấp phát bộ nhớ một lần khi loading class trong class Area.</li></ul><blockquote><p>Class Area là một thành phần của JVM. Nó lưu trữ cấu trúc của các lớp, thuộc tính, phương thức của lớp, và code của các phương thức.</p></blockquote><p>Ví dụ:</p><blockquote><pre><code>  public class Counter &#123;       public static int COUNT = 0;        int count = 0;       public void add() &#123;           COUNT++;           count++;           System.out.println(COUNT);            System.out.println(count);       &#125;          public static void main(String[] args) &#123;           Counter c1 = new Counter();           c1.add(); // COUNT = 1; count = 1;           // do COUNT được share chung với các instance nên           // cả c1.COUNT, c2.COUNT hay Counter.COUNT cũng đều trỏ vào chung một biến           Counter c2 = new Counter();           c2.add(); // COUNT = 2; count = 1;       &#125;   &#125;</code></pre></blockquote><h2 id="3-Static-methods">3. Static methods</h2><ul><li>Khi khai báo một method với static thì biến đó là method static.</li><li>Giống như biến static, static method thuộc về class chứ không phải instance nên nó có thể truy cập trực tiếp bằng tên của class mà không cần object.</li><li>Static method có thể truy cập và thay đổi giá trị của biến static, nhưng không gọi trực tiếp các biến non-static khác.</li><li>Static method có thể gọi các static method khác, nhưng không gọi trực tiếp các non-static method khác.</li><li>Static method không thể sử dụng <code>this</code> và <code>super</code> trong thân hàm</li></ul><p>Ví dụ:</p><p>Trong class Counter ta tạo thêm 2 static method như sau:</p><blockquote><pre><code>   static void subtract() &#123;      COUNT--; // Call trực tiếp được một biến static      // count--; Không thể call một biến non-static      print(); // call trực tiếp một static method   &#125;   static void print()&#123;       System.out.println(COUNT);   &#125;</code></pre></blockquote><p>Khi này trong hàm <code>main</code> ta thêm dòng code sau:</p><blockquote><pre><code>  Counter.subtract(); // 1 </code></pre></blockquote><h2 id="4-Static-blocks-of-code">4. Static blocks of code</h2><ul><li>static blocks được dùng để tạo hoặc thay đổi giá trị cho các biến static.</li><li>static blocks sẽ được execute trước khi hàm main khi loading class</li></ul><p>Ví dụ:</p><blockquote><pre><code>   public class Counter &#123;          public static int COUNT;       int count = 0;          static &#123;          System.out.println(&quot;invoked static block&quot;);           COUNT = 0;       &#125;       public static void main(String[] args) &#123;           System.out.println(&quot;invoked main&quot;);       &#125;   &#125;</code></pre></blockquote><p>Kết quả:</p><pre><code>    invoked static block    invoked main    0</code></pre><h2 id="5-Static-nested-class">5. Static nested class</h2><ul><li>Static nested class giúp nhóm các class có liên quan lại với nhau.</li><li>Tất cả <strong>static classes</strong> là <strong>nested class</strong> (các classes bên trong), nhưng ngược lại thì không.</li><li>Nó chỉ truy cập được các variables và methods static của outer class (bao gồm cả <strong>private</strong> access modifier).</li></ul><p>Ví dụ:</p><blockquote><pre><code>   public class Outer &#123;          private static String name = &quot;Outer&quot;;       private String hello = &quot;This is outer class&quot;;          //static nested class       static class InnerStatic &#123;           void replaceOuterName() &#123;               // thay đổi biến static của outer class mặc dù name là `private`               name = &quot;Outer class&quot;;               // hello = &quot;&quot;; -- vì des là non-static variable nên sẽ bị lỗi           &#125;           static void print() &#123;               System.out.println(name);           &#125;       &#125;          // inner class       class InnerNonStatic &#123;           void sayHello() &#123;               // truy cập tất cả các biến của Outer class               System.out.println(hello + &quot;, I am InnerNonStatic&quot;);           &#125;       &#125;          public static void main(String[] args) &#123;           // Do `replaceOuterName()` là non-static method nên           // cần tạo instance cho `InnerStatic` class           Outer.InnerStatic obj = new Outer.InnerStatic();           obj.replaceOuterName();           System.out.println(Outer.name); // Outer class              Outer.InnerStatic.print();              Outer outer = new Outer();          Outer.InnerNonStatic nonStatic = outer.new InnerNonStatic();           nonStatic.sayHello();       &#125;   &#125;</code></pre></blockquote><h2 id="6-Refer">6. Refer</h2><p><a href="https://github.com/michaelbell1008/Tutorial/blob/master/src/main/java/tutorial/staticinjava/Counter.java">https://github.com/michaelbell1008/Tutorial/blob/master/src/main/java/tutorial/staticinjava/Counter.java</a></p>]]></content>
+        <content type="html"><![CDATA[<p><img src="/images/static-in-java.png" alt="static-in-java"></p><h2 id="1-Tu-khoa-static">1. Từ khóa static</h2><ul><li>static mục đích chính là để quản lý bộ nhớ tốt hơn.</li><li>static được sử dụng trong 4 trường hợp sau:<ul><li>static variables</li><li>static methods</li><li>static blocks of code</li><li>static nested class</li></ul></li></ul><h2 id="2-Static-variable">2. Static variable</h2><ul><li>Khi khai báo một biến với static thì biến đó là biến static.</li><li>Biến static thuộc về class chứ không phải instance nên nó có thể truy cập trực tiếp bằng tên của class mà không cần object.</li><li>Biến static được chia sẻ chung cho tất cả các instance của class đó.</li><li>Biến static chỉ được cấp phát bộ nhớ một lần khi loading class trong class Area.</li></ul><blockquote><p>Class Area là một thành phần của JVM. Nó lưu trữ cấu trúc của các lớp, thuộc tính, phương thức của lớp, và code của các phương thức.</p></blockquote><p>Ví dụ:</p><blockquote><pre><code>  public class Counter &#123;       public static int COUNT = 0;        int count = 0;       public void add() &#123;           COUNT++;           count++;           System.out.println(COUNT);            System.out.println(count);       &#125;          public static void main(String[] args) &#123;           Counter c1 = new Counter();           c1.add(); // COUNT = 1; count = 1;           // do COUNT được share chung với các instance nên           // cả c1.COUNT, c2.COUNT hay Counter.COUNT cũng đều trỏ vào chung một biến           Counter c2 = new Counter();           c2.add(); // COUNT = 2; count = 1;       &#125;   &#125;</code></pre></blockquote><h2 id="3-Static-methods">3. Static methods</h2><ul><li>Khi khai báo một method với static thì biến đó là method static.</li><li>Giống như biến static, static method thuộc về class chứ không phải instance nên nó có thể truy cập trực tiếp bằng tên của class mà không cần object.</li><li>Static method có thể truy cập và thay đổi giá trị của biến static, nhưng không gọi trực tiếp các biến non-static khác.</li><li>Static method có thể gọi các static method khác, nhưng không gọi trực tiếp các non-static method khác.</li><li>Static method không thể sử dụng <code>this</code> và <code>super</code> trong thân hàm</li></ul><p>Ví dụ:</p><p>Trong class Counter ta tạo thêm 2 static method như sau:</p><blockquote><pre><code>   static void subtract() &#123;      COUNT--; // Call trực tiếp được một biến static      // count--; Không thể call một biến non-static      print(); // call trực tiếp một static method   &#125;   static void print()&#123;       System.out.println(COUNT);   &#125;</code></pre></blockquote><p>Khi này trong hàm <code>main</code> ta thêm dòng code sau:</p><blockquote><pre><code>  Counter.subtract(); // 1 </code></pre></blockquote><h2 id="4-Static-blocks-of-code">4. Static blocks of code</h2><ul><li>static blocks được dùng để tạo hoặc thay đổi giá trị cho các biến static.</li><li>static blocks sẽ được execute trước khi hàm main khi loading class</li></ul><p>Ví dụ:</p><blockquote><pre><code>   public class Counter &#123;          public static int COUNT;       int count = 0;          static &#123;          System.out.println(&quot;invoked static block&quot;);           COUNT = 0;       &#125;       public static void main(String[] args) &#123;           System.out.println(&quot;invoked main&quot;);       &#125;   &#125;</code></pre></blockquote><p>Kết quả:</p><pre><code>    invoked static block    invoked main    0</code></pre><h2 id="5-Static-nested-class">5. Static nested class</h2><ul><li>Static nested class giúp nhóm các class có liên quan lại với nhau. Và giúp code của chúng đơn giản hơn.</li><li>Tất cả <strong>static classes</strong> là <strong>nested class</strong> (các classes bên trong), nhưng ngược lại thì không.</li><li>Nó chỉ truy cập được các variables và methods static của outer class (bao gồm cả <strong>private</strong> access modifier).</li></ul><p>Ví dụ:</p><blockquote><pre><code>   public class Outer &#123;          private static String name = &quot;Outer&quot;;       private String hello = &quot;This is outer class&quot;;          //static nested class       static class InnerStatic &#123;           void replaceOuterName() &#123;               // thay đổi biến static của outer class mặc dù name là `private`               name = &quot;Outer class&quot;;               // hello = &quot;&quot;; -- vì des là non-static variable nên sẽ bị lỗi           &#125;           static void print() &#123;               System.out.println(name);           &#125;       &#125;          // inner class       class InnerNonStatic &#123;           void sayHello() &#123;               // truy cập tất cả các biến của Outer class               System.out.println(hello + &quot;, I am InnerNonStatic&quot;);           &#125;       &#125;          public static void main(String[] args) &#123;           // Do `replaceOuterName()` là non-static method nên           // cần tạo instance cho `InnerStatic` class           Outer.InnerStatic obj = new Outer.InnerStatic();           obj.replaceOuterName();           System.out.println(Outer.name); // Outer class              Outer.InnerStatic.print();              Outer outer = new Outer();          Outer.InnerNonStatic nonStatic = outer.new InnerNonStatic();           nonStatic.sayHello();       &#125;   &#125;</code></pre></blockquote><h2 id="6-Refer">6. Refer</h2><p><a href="https://github.com/michaelbell1008/Tutorial/tree/master/src/main/java/tutorial/staticinjava">https://github.com/michaelbell1008/Tutorial/tree/master/src/main/java/tutorial/staticinjava</a></p>]]></content>
       
       
       <categories>
@@ -464,7 +495,7 @@
             
             <tag> Technology </tag>
             
-            <tag> static </tag>
+            <tag> Static </tag>
             
         </tags>
       
@@ -493,11 +524,11 @@
       
         <tags>
             
-            <tag> Java </tag>
+            <tag> scala </tag>
             
-            <tag> Scala </tag>
+            <tag> technology </tag>
             
-            <tag> Technology </tag>
+            <tag> java </tag>
             
         </tags>
       
