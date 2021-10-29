@@ -10,7 +10,7 @@ Lợi ích
 
 Giúp loose coupling cho code vì hướng tiếp cận đã được chuyển sang implement an interface.
 Scalable code một cách đơn giản. Thêm khai báo trong Factory
-Che dấu được việc khởi tạo các objects và tập trung code vào một nơi sẽ giúp client có thể k.."><meta name="generator" content="Hexo 5.4.0"></head><body class="is-flex is-flex-direction-column"><header class="header-widget is-flex-shrink-0 is-hidden-mobile"><div class="container is-fullhd is-flex is-justify-content-space-between is-align-items-center is-full-height"><section class="is-hidden-mobile is-flex-shrink-0"><h2><a href="/">Michael Bell's blog</a></h2></section><h3 class="is-hidden-mobile is-family-serif is-full-height is-flex is-align-items-center is-flex-shrink-0"><div class="is-full-height" id="postTopic"><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">Factory Pattern</p><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">Click back to the top</p></div></h3><aside class="is-flex-shrink-0"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3></aside></div></header><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-center is-hidden-tablet"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3></header><main><main class="container is-max-widescreen content section post-page pt-4 px-4"><div class="columns is-flex-desktop is-justify-content-center is-flex-direction-row-reverse"><div class="column is-3 is-hidden-mobile"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Factory-Pattern"><span class="toc-text">1. Factory Pattern.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Simple-Factory"><span class="toc-text">2. Simple Factory</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#a-Simple-Factory-la-gi"><span class="toc-text">a. Simple Factory là gì?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#b-Implementation"><span class="toc-text">b. Implementation</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Factory-Method-Pattern"><span class="toc-text">3. Factory Method Pattern</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#a-Factory-Method-Pattern-la-gi"><span class="toc-text">a. Factory Method Pattern là gì?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#b-Implementation-v2"><span class="toc-text">b. Implementation</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Refer"><span class="toc-text">4. Refer</span></a></li></ol></div><div class="column is-9"><header class="my-4"><a href="/tags/Java"><i class="tag post-item-tag">Java</i></a><a href="/tags/Technology"><i class="tag post-item-tag">Technology</i></a><a href="/tags/FactoryPattern"><i class="tag post-item-tag">FactoryPattern</i></a><a href="/tags/SimpleFactory"><i class="tag post-item-tag">SimpleFactory</i></a><a href="/tags/FactoryMethod"><i class="tag post-item-tag">FactoryMethod</i></a></header><h1 class="mt-0 mb-1 is-family-serif" id="postTitle">Factory Pattern</h1><time class="has-text-grey" datetime="2018-01-10T15:37:47.000Z">2018-01-10</time><article class="mt-2 post-content"><h2 id="1-Factory-Pattern">1. Factory Pattern.</h2>
+Che dấu được việc khởi tạo các objects và tập trung code vào một nơi sẽ giúp client có thể k.."><meta name="generator" content="Hexo 5.4.0"></head><body class="is-flex is-flex-direction-column"><header class="header-widget is-flex-shrink-0 is-hidden-mobile"><div class="container is-fullhd is-flex is-justify-content-space-between is-align-items-center is-full-height"><section class="is-hidden-mobile is-flex-shrink-0"><h2><a href="/">Michael Bell's blog</a></h2></section><h3 class="is-hidden-mobile is-family-serif is-full-height is-flex is-align-items-center is-flex-shrink-0"><div class="is-full-height" id="postTopic"><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">Factory Pattern</p><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">Click back to the top</p></div></h3><aside class="is-flex-shrink-0"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3></aside></div></header><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-center is-hidden-tablet"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3></header><main><main class="container is-max-widescreen content section post-page pt-4 px-4"><div class="columns is-flex-desktop is-justify-content-center is-flex-direction-row-reverse"><div class="column is-3 is-hidden-mobile"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Factory-Pattern"><span class="toc-text">1. Factory Pattern.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Simple-Factory"><span class="toc-text">2. Simple Factory</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#a-Simple-Factory-la-gi"><span class="toc-text">a. Simple Factory là gì?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#b-Implementation"><span class="toc-text">b. Implementation</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Factory-Method-Pattern"><span class="toc-text">3. Factory Method Pattern</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#a-Factory-Method-Pattern-la-gi"><span class="toc-text">a. Factory Method Pattern là gì?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#b-Implementation-v2"><span class="toc-text">b. Implementation</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Refer"><span class="toc-text">4. Refer</span></a></li></ol></div><div class="column is-9"><header class="my-4"><a href="/tags/Technology"><i class="tag post-item-tag">Technology</i></a><a href="/tags/Java"><i class="tag post-item-tag">Java</i></a><a href="/tags/FactoryPattern"><i class="tag post-item-tag">FactoryPattern</i></a><a href="/tags/SimpleFactory"><i class="tag post-item-tag">SimpleFactory</i></a><a href="/tags/FactoryMethod"><i class="tag post-item-tag">FactoryMethod</i></a></header><h1 class="mt-0 mb-1 is-family-serif" id="postTitle">Factory Pattern</h1><time class="has-text-grey" datetime="2018-01-10T15:37:47.000Z">2018-01-10</time><article class="mt-2 post-content"><h2 id="1-Factory-Pattern">1. Factory Pattern.</h2>
 <p>Factory Pattern có 3 mô hình chính:</p>
 <ul>
 <li>Simple Factory</li>
@@ -21,7 +21,7 @@ Che dấu được việc khởi tạo các objects và tập trung code vào m�
 <ul>
 <li>Giúp loose coupling cho code vì hướng tiếp cận đã được chuyển sang <strong>implement an interface</strong>.</li>
 <li>Scalable code một cách đơn giản. Thêm khai báo trong Factory</li>
-<li>Che dấu được việc khởi tạo các objects và tập trung code vào một nơi sẽ giúp client có thể khởi tạo chúng ở nhiều nơi một cách dễ dàng.</li>
+<li>Che dấu được việc khởi tạo các objects và tập trung code vào một nơi sẽ giúp client có thể khởi tạo chúng ở nhiều nơi một cách ngắn gọn, dễ dàng.</li>
 </ul>
 <p>Trong nội dung bài này chúng ta sẽ đi tìm hiểu Simple Factory và Factory method. Abstract factory sẽ được viết trong một bài khác.</p>
 <h2 id="2-Simple-Factory">2. Simple Factory</h2>
@@ -117,7 +117,7 @@ VD: Chỉ quan tâm là có một bát phở, còn phở được nấu với th
 <p>Theo Gang of Four: <strong>Define an interface for creating an object, but let subclasses decide which class to instantiate.
 Factory Method lets a class defer instantiation to subclasses.</strong></p>
 <p>Nghĩa là: Định nghĩa một interface để tạo một object, nhưng để subclasses quyết định class nào được khởi tạo instance.
-Factory Method để việc khởi tạo một object cho các subclasses</p>
+Factory Method để việc khởi tạo một object cụ thể cho các subclasses</p>
 </blockquote>
 <ul>
 <li>Factory method gợi ý chúng ta thay vì khởi tạo 1 object cụ thể bằng trực tiếp gọi toán tử <code>new</code> thì hãy gọi nó qua một factory method.</li>
@@ -125,21 +125,23 @@ Factory Method để việc khởi tạo một object cho các subclasses</p>
 </ul>
 <h3 id="b-Implementation-v2">b. Implementation</h3>
 <ul>
-<li>Tạo ra một abstract hoặc interface Creator chỉ với mục đích khai báo <strong>factoryMethod()</strong>.</li>
-<li>Tạo ra các subclasses <strong>ConcreateCreator</strong> để implement method <strong>factoryMethod()</strong> của Creator.
-Đây chính là cách là Factory Method để việc khởi tạo một object cho các subclasses</li>
+<li>Tạo ra một abstract hoặc interface Creator class với mục đích khai báo <strong>factoryMethod()</strong>.</li>
+<li><strong>factoryMethod()</strong> NÊN là một abstract method để các subclasses bắt buộc phải implements nó.</li>
+<li>Tạo ra các subclasses <strong>ConcreteCreator</strong> để implement method <strong>factoryMethod()</strong> của Creator.
+Đây chính là cách là Factory Method để việc khởi tạo một object cho các subclasses quyết định</li>
 </ul>
 <p><img src="/images/design-pattern/factory-method/factory-method.png" alt="factory-method"></p>
 <p>Ví dụ:
-Áp dụng Factory method vào ví dụ bên trên chúng ta cần sửa lại PhoFactory và Test.
-Đồng thời tạo thêm HaNoiPhoFactory và NamDinhPhoFactory để implement PhoFactory.</p>
+Áp dụng Factory Method vào ví dụ bên trên chúng ta cần sửa lại PhoFactory và Test.
+Đồng thời tạo thêm HaNoiPhoFactory và NamDinhPhoFactory để extends PhoFactory.</p>
 <blockquote>
 <pre><code>   public abstract class PhoFactory &#123;
    
-      // factory method
+      // createPho bat buoc subclasses phai implement no
+      // PhoFactory khong biet duoc subclasses tao instance cho class nao.
       public abstract Pho createPho(PhoType type);
    
-       public void order(PhoType type)&#123;
+      public void order(PhoType type)&#123;
           Pho pho = createPho(type);
           pho.description();
       &#125;
