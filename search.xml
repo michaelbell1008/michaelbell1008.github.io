@@ -4,6 +4,93 @@
   
     
     <entry>
+      <title>Big Query lesson learnt</title>
+      <link href="/Technology/common/2022/05/14/big-query/"/>
+      <url>/Technology/common/2022/05/14/big-query/</url>
+      
+        <content type="html"><![CDATA[<p><img src="/images/big-query.png" alt="Big Query"></p><h2 id="1-Setup-BQ-cli">1. Setup BQ cli</h2><h2 id="2-Commands-hay-dung">2. Commands hay dùng</h2><h3 id="Set-active-account-service-with-file-key">Set active account service with file key</h3><blockquote><pre><code>  gcloud auth activate-service-account --key-file config_path</code></pre></blockquote><p>Trong đó config_path là đường dẫn đến file configVà file config có nội dung ví dụ như sau:</p><blockquote><pre><code>  &#123;      &quot;type&quot;: &quot;service_account&quot;,      &quot;project_id&quot;: &quot;my-project-dev&quot;,      &quot;private_key_id&quot;: &quot;private_key_id&quot;,      &quot;private_key&quot;: &quot;-----BEGIN PRIVATE KEY-----\\n....\\n-----END PRIVATE KEY-----\\n&quot;,      &quot;client_email&quot;: &quot;michaelbell@my-project-dev.iam.gserviceaccount.com&quot;,      &quot;client_id&quot;: &quot;client_id&quot;,      &quot;auth_uri&quot;: &quot;https://accounts.google.com/o/oauth2/auth&quot;,      &quot;token_uri&quot;: &quot;https://oauth2.googleapis.com/token&quot;,      &quot;auth_provider_x509_cert_url&quot;: &quot;https://www.googleapis.com/oauth2/v1/certs&quot;,      &quot;client_x509_cert_url&quot;: &quot;https://www.googleapis.com/robot/v1/metadata/x509/michaelbell%my-project-dev.iam.gserviceaccount.com&quot;  &#125;</code></pre></blockquote><h3 id="Dataset">Dataset</h3><h4 id="Create-new-Dataset">Create new Dataset</h4><blockquote><pre><code>  bq --location=us mk --dataset project_id:data_set</code></pre><p>Ví dụ: Tạo dataset airbnb</p><pre><code>  bq --location=us mk --dataset my-project-dev:airbnb</code></pre></blockquote><h4 id="Remove-dataset">Remove dataset</h4><blockquote><pre><code>  bq rm -r -f -d project_id:data_set</code></pre><p>Trong đó:</p><pre><code>  rm: remove  -r: recursive  -f: fork  -d:   Ví dụ: bq rm -r -f -d my-project-dev:airbnb</code></pre></blockquote><h3 id="Load-file-to-table-Biquery">Load file to table Biquery</h3><h4 id="Load-from-local-file">Load from local file</h4><blockquote><pre><code>  bq load --source_format=CSV --autodetect  data_set.table_id &quot;file_path&quot;</code></pre></blockquote><h4 id="Load-from-GCS-files">Load from GCS files</h4><blockquote><pre><code>  bq load --source_format=NEWLINE_DELIMITED_JSON --autodetect data_set.table_id &quot;gcs_file_path&quot;</code></pre><p>Ví dụ:</p><pre><code>  bq load --source_format=NEWLINE_DELIMITED_JSON --autodetect data_set.table_id &quot;gs://my-bucket-dev/development/user.json.gz&quot;</code></pre></blockquote><h4 id="Load-file-with-schema-defined">Load file with schema defined</h4><blockquote><pre><code>  bq load --source_format=NEWLINE_DELIMITED_JSON --ignore_unknown_values data_set.table_id &quot;gcs_file_path&quot; &quot;schema_file_path&quot;</code></pre><p>VD:</p><pre><code>  bq load --source_format=NEWLINE_DELIMITED_JSON --ignore_unknown_values data_set.table_id &quot;gs://my-bucket-dev/development/user.json.gz&quot; &quot;~/Desktop/schema.json&quot;</code></pre></blockquote><h4 id="Chu-y">Chú ý:</h4><blockquote><pre><code>  source_format=NEWLINE_DELIMITED_JSON để load files data Json  source_format=CSV để load files data CSV  --autodetect: BQ sẽ tự detect các fields, field type tương ứng với các data được load từ file lên BQ  --ignore_unknown_values: Dựa vào thông tin trong file schema.json, BQ sẽ chỉ lấy những data trong file data theo những trường đã được khai báo trước. </code></pre></blockquote><h3 id="Show-Schema-of-table">Show Schema of table</h3><blockquote><pre><code>  bq show --schema --format=prettyjson data_set.table_id &gt; /tmp/schema_of_table</code></pre></blockquote><h3 id="Remove-table">Remove table</h3><blockquote><pre><code>  bq rm -t data_set.table_id</code></pre></blockquote><h3 id="Run-query">Run query</h3><blockquote><pre><code>  bq query --nouse_legacy_sql \  'query_statement'</code></pre><p>Ví dụ:</p><pre><code>  bq query --nouse_legacy_sql \  'SELECT COUNT(*) FROM airbnb.users'</code></pre></blockquote><h2 id="3-Queries">3. Queries</h2><h2 id="4-Cac-kien-thuc-can-nho">4. Các kiến thức cần nhớ</h2><h3 id="Temp-table">Temp table</h3><ul><li>Tạo 1 table TEMPORARY.</li><li>TEMP table sẽ tự động bị xóa sau 24h. Hoặc có thể chủ động xóa manual bằng lệnh DROP</li><li>TEMP table được quản lý bởi một dataset đặc biệt.</li></ul><h3 id="External-table">External table</h3>]]></content>
+      
+      
+      <categories>
+          
+          <category> Technology </category>
+          
+          <category> common </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Technology </tag>
+            
+            <tag> BigQuery </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>GCS</title>
+      <link href="/Technology/common/2022/05/14/gcs-gcp/"/>
+      <url>/Technology/common/2022/05/14/gcs-gcp/</url>
+      
+        <content type="html"><![CDATA[<h2 id="1-GCS">1. GCS</h2><ul><li><p>Retention - Chức năng giúp data không bị delete, update trong 1 khoảng thời gian.</p></li><li><p>Lifecycle - Tối ưu hóa chi phí. GCS chia thành 3 class:</p><ul><li>Standard storage: dữ liệu thường truy cập</li><li>Nearline Storage dữ liệu ít truy cập hơn (less than  once a month)</li><li>Coldline (less than  once a quarter)</li><li>Archive (less than  once a year)</li></ul></li><li><p>Dùng tình năng transfer để chuyển data cử GCS bucket, AWS S3 bucket hoặc List of object URLs để transfer data vào GCS bucket.</p></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Technology </category>
+          
+          <category> common </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Technology </tag>
+            
+            <tag> GCP </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>AWS Phần 1</title>
+      <link href="/Technology/common/2022/05/14/aws-1/"/>
+      <url>/Technology/common/2022/05/14/aws-1/</url>
+      
+        <content type="html"><![CDATA[<h2 id="1-AWS-Infrastructure">1. AWS Infrastructure</h2><h3 id="a-Regions">a. Regions</h3><ul><li>AWS có các Regions ở rải rác trên toàn thế giới. VD: ap-northeast-1, us, eu-west-3…</li><li>1 Region là 1 cụm các data centers</li><li>Hầu hết các AWS services có scope là Region.</li></ul><p>Các tiêu chí khi chọn AWS Region:</p><ul><li>Compliance with data governance and legal requirements: Thỉnh thoảng các chính quyền yêu cầu ứng dụng, data nhạy cảm cần được lưu trữ ở trong nước nơi mà ứng dụng được hoạt động.</li><li>Proximity to customers: reduced latency</li><li>Available services within a Region: Mỗi region khác nhau sẽ được cung cấp các services, feature khác nhau</li><li>Pricing: Các region khác nhau sẽ có giá khác nhau</li></ul><h3 id="b-Availability-Zones-AZ">b. Availability Zones (AZ)</h3><ul><li>Mỗi Region có nhiều AZ (ít nhất là 2, nhiều nhất là 6, thông thường là 3). VD: ap-southeast-2a, ap-southeast-2b, ap-southeast-2c</li><li>Mỗi AZ có một hoặc nhiều các data centers (nơi lưu trữ vật lý) rời rạc, tách biệt và chúng được liên kết mới nhau với high bandwidth, ultra-lơ latency networking. Mục đích để tránh các thảm họa gây mất mát dữ liệu</li></ul><h3 id="AWS-Points-of-Presence-PoP-Edge-Locations">AWS Points of Presence (PoP - Edge Locations)</h3><p><img src="/images/aws/edge-location-structure.png" alt="Edge Location"></p><ul><li>Edge Location là những điểm mà các yêu cầu của Users được gửi đến nhanh nhất với mục đích xử lý request của khách hàng nhanh nhất.</li><li>Regional Edge Cache có bộ nhớ cache rất lớn, lưu trữ data được lâu hơn và lớn hơn rất nhiều so với cache của Edge Location. Regional Edge Cache sẽ giúp giảm các yêu cầu đến Origin Server</li><li>AWS có 216 PoP (206 Edge Locations và 11 Regional Edge Caches)</li></ul><h2 id="2-IAM-Identity-and-Access-Management">2. IAM (Identity and Access Management)</h2><ul><li>IAM là Global service. Nó không phụ thuộc, không phải lựa chọns region.</li><li>Root account không nên sử dụng ngoại trừ việc thiết lập các accounts.</li><li>Dùng Root account để tạo ra các User và Groups để grant Permissions cho chúng.</li><li>Một Group chỉ nên chứa các users, không chứa các groups khác</li><li>Một user có thể không thuộc vào 1 group (Đây không phải là best practice) và một user có thể thuộc nhiều Groups</li><li>File JSON doctument dùng để định danh các permissions cho User và Group được gọi là policies<ul><li>Version: policy language version, luôn luôn bao gồm “2012-10-17”</li></ul></li><li>Nguyên tắc là không được cung cấp permissions nhiều hơn cái mà users cần</li><li>Một người dùng vật lý sẽ tương ứng với 1 AWS user. (không chia sẻ thông tin tài khoản cho người khác)</li><li>Chỉ nên assign users vào các groups và assign các permissions cho các groups đó.</li><li>Nên tạo và sử dụng Roles để cấp permissions cho AWS services.</li><li>Sử dụng IAM Credentials Report để audit permissions cho account</li></ul><h3 id="a-IAM-Password-Policy">a. IAM Password Policy</h3><ul><li><p>Cho phép thiết lập policy password: ít nhất bao nhiêu ký tự, chữ hoa, thường…</p></li><li><p>Cho phép các user IAM thay đổi password của họ</p></li><li><p>Cho phép yêu cầu users đổi password sau 1 khoảng thời gian</p></li><li><p>Cho phép yêu cầu không được sử dụng lại pass cũ</p></li><li><p>IAM user thuộc tối đa 10 group</p></li><li><p>1 account có tối đa 5000 IAM user.</p></li></ul><p>Multi Factor Authentication - MFA</p><ul><li>AWS yêu cầu và rất khuyên dùng dịch vụ này</li><li>MFA = password you know + security device you own</li><li>Có thể dùng Vitual MFA device (Google Authenticator, Authy (recommended)), Universal 2nd factor - U2F (Một thiết bị vật lý), Hardware Key fob MFA device để thực hiện MFA</li><li>Có 3 cách để truy cập vào AWS:<ul><li>AWS Management Console (protected by password + MFA)</li><li>AWS Command Line Interface (CLI): protected by access keys (access key được tạo bởi AWS console)</li><li>AWS Software Developer Kit (SDK) - for code: protected by access key</li></ul></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Technology </category>
+          
+          <category> common </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Technology </tag>
+            
+            <tag> AWS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>10 sai lầm lớn nhất của người lãnh đạo</title>
       <link href="/Book/2022/03/31/10-sai-lam-lon-nhat-cua-nguoi-lanh-dao/"/>
       <url>/Book/2022/03/31/10-sai-lam-lon-nhat-cua-nguoi-lanh-dao/</url>
