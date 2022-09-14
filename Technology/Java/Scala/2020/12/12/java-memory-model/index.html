@@ -72,7 +72,7 @@ mà sẽ chờ đến khi CPU cần phải lưu những thứ khác trong Cache 
 </ul>
 <h2 id="3-Bo-nho-phan-cung-tuong-tac-voi-JVM-memory">3. Bộ nhớ phần cứng tương tác với JVM memory</h2>
 <p><img src="/images/java-memory/hardware-mapping-jvm.png" alt="hardware-mapping-jvm"></p>
-<p>Cấu trúc bộ nhớ của JVM và máy tính là khác nhau. Các data của Thread stack, Heap đều có thể được lưu mooth phần trong CPU Registers, CPU Cache Memory, RAM. Vì thế có 2 vấn đề thường gặp:</p>
+<p>Cấu trúc bộ nhớ của JVM và máy tính là khác nhau. Các data của Thread stack, Heap đều có thể được lưu một phần trong CPU Registers, CPU Cache Memory, RAM. Vì thế có 2 vấn đề thường gặp:</p>
 <ul>
 <li>Visibility of thread updates (writes) to shared variables.</li>
 <li>Race conditions</li>
