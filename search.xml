@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>PMP Change Request</title>
+      <link href="/Book/2023/06/25/change-request/"/>
+      <url>/Book/2023/06/25/change-request/</url>
+      
+        <content type="html"><![CDATA[<p><img src="/images/pmp/change-request.png" alt="change-request"></p><p>Quy trình 7 bước để thực hiện Change Request</p><h3 id="1-Understand-the-change">1. Understand the change</h3><h3 id="2-Prevent-unnecessary-changes">2. Prevent unnecessary changes</h3><ul><li>Nên chủ động loại những CR không cần thiết, không mang lại giá trị, hoặc mang lại giá trị không đáng kể nhưng chi phí phát triển lớn.</li></ul><h3 id="3-Identify-root-cause-of-change">3. Identify root cause of change</h3><ul><li>CR có thể xuất phát từ PM để điều chỉnh tăng hiệu quả sau khi so sánh kết quả thực tế với baseline</li><li>CR xuất phát từ clients, hay các stakeholders khác</li><li>PM cần xác định, tìm kiếm các CR này càng sớm càng tốt vì chi phí thay đổi sẽ giảm đi</li></ul><h3 id="4-Look-at-the-impact-of-the-change">4. Look at the impact of the change</h3><ul><li>Đánh giá về việc nếu thực hiện CR này nó sẽ ảnh hưởng đến scope, schedule của các dự án thế nào?</li></ul><h3 id="5-Perform-Integrated-Change-Control">5. Perform Integrated Change Control</h3><h4 id="a-Assess-the-change">a. Assess the change</h4><p>Đánh giá sự tác động của CR đến tất cả các phần:</p><ul><li>CR có nằm trong Project Charter? Nếu không thì nó không lên là CR mà có thể nằm trong 1 dự án mới</li><li>CR có lợi cho dự án không? Nếu không thì không nên Approve</li></ul><p>Chú ý: Với thay đổi về Risk Responses sẽ được xử lý như Implement Risk Responses chứ không phải Perform Integrated Change Control</p><h4 id="b-Look-for-options">b. Look for options</h4><h4 id="c-Change-is-approved-or-rejected">c. Change is approved or rejected</h4><ul><li>Những thay đổi liên quan đến baseline, project management, project charter… sẽ cần được kiểm soát bởi Change Control Board (CCB) và/hoặc cả sponsor.</li><li>Những CR được approved sẽ được thực hiện trong Direct and Manage Project Work, Control Quality, Control Procurements</li></ul><h3 id="6-Update-the-status-of-the-change-in-the-change-control-system">6. Update the status of the change in the change control system</h3><ul><li>Cần làm điều này để mọi người biết CR đã được approved.</li><li>Nếu CR bị rejected thì cần ghi thêm lý do.</li></ul><h3 id="7-Adjust-the-project-management-plan-and-baseline">7. Adjust the project management plan and baseline</h3><ul><li>Các tài liệu liên quan đến CR cần được cập nhật tương ứng</li></ul><h3 id="8-Notify-stakeholders-affected-by-the-change">8. Notify stakeholders affected by the change</h3><h3 id="9-Manage-the-project-to-the-new-project-management-plan">9. Manage the project to the new project management plan</h3>]]></content>
+      
+      
+      <categories>
+          
+          <category> Book </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> pmp </tag>
+            
+            <tag> Change Request </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>PMP stakeholder</title>
       <link href="/Book/2023/06/14/stakeholder/"/>
       <url>/Book/2023/06/14/stakeholder/</url>
@@ -23,6 +50,33 @@
             <tag> pmp </tag>
             
             <tag> stakeholder </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>PMP Communication</title>
+      <link href="/Book/2023/06/14/communication/"/>
+      <url>/Book/2023/06/14/communication/</url>
+      
+        <content type="html"><![CDATA[<p><img src="/images/pmp/communication.png" alt="communication"></p><h2 id="1-Plan-Communication-Management">1. Plan Communication Management</h2><h3 id="a-Inputs">a. Inputs</h3><h3 id="b-Stakeholder-analysis">b. Stakeholder analysis</h3><h3 id="c-Tools-Techniques">c. Tools &amp; Techniques</h3><h3 id="d-Outputs">d. Outputs</h3><h2 id="2-Manage-Communications">2. Manage Communications</h2><h3 id="a-Inputs-v2">a. Inputs</h3><h3 id="b-Plan-Stakeholder-Engagement">b. Plan Stakeholder Engagement</h3><h3 id="c-Tools-Techniques-v2">c. Tools &amp; Techniques</h3><h3 id="d-Outputs-v2">d. Outputs</h3><h2 id="3-Control-Communications">3. Control Communications</h2><h3 id="a-Inputs-v3">a. Inputs</h3><h3 id="b-Manage-Stakeholder-Engagement">b. Manage Stakeholder Engagement</h3><h3 id="c-Tools-Techniques-v3">c. Tools &amp; Techniques</h3><h3 id="d-Outputs-v3">d. Outputs</h3>]]></content>
+      
+      
+      <categories>
+          
+          <category> Book </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> pmp </tag>
+            
+            <tag> Communication </tag>
             
         </tags>
       
