@@ -31,6 +31,33 @@
     
     
     <entry>
+      <title>PMP Communication</title>
+      <link href="/Book/2023/06/17/communication/"/>
+      <url>/Book/2023/06/17/communication/</url>
+      
+        <content type="html"><![CDATA[<h2 id="1-Plan-Communication-Management">1. Plan Communication Management</h2><h3 id="a-Inputs">a. Inputs</h3><ul><li><p>Project charter</p></li><li><p>Project Management Plan</p><ul><li>Resource management plan</li><li>Stakeholder engagement plan</li></ul></li><li><p>Project documents</p><ul><li>Stakeholder Register</li><li>Requirements documentation</li></ul></li><li><p>Enterprise Environmental Factors</p></li><li><p>Organizational Process Assets</p></li></ul><h3 id="b-Plan-Communication-Management">b. Plan Communication Management</h3><ul><li><p>Là quá trình xác định đối tượng, cách thức, thời điểm thông tin dự án sẽ được truyền tải.</p></li><li><p>Việc lên kế hoạch này cần được làm ASAP.</p></li><li><p>Nên được reviewed định kỳ trong suốt dự án.</p></li><li><p>Nó được thay đổi khi có thêm hoặc mất đi 1 stakeholder hoặc có 1 stakeholder nào đó muốn thay đổi.</p></li></ul><h3 id="c-Tools-Techniques">c. Tools &amp; Techniques</h3><ul><li>Communication Requirement Analysis: Xác định thông tin mà các stakeholders cần thông qua interview, workshop, lesson learnt từ project trước.</li><li>Communication styles assessment</li><li>Communication Complexity<ul><li>channels of communications = N(N-1)/2</li></ul></li><li>Communication Technology</li><li>Communication Model</li><li>Communication Methods<ul><li>Push communication: Gửi thông tin cho những người cụ thể. Nó đảm bảo thông tin đã được gửi đi.Nhưng không đảm bảo người nhận có thể nhận hoặc hiểu nội dung. VD: letter, email…</li><li>Pull communication: Sử dụng khi có nhiều thông tin cần gửi và gửi cho 1 số lượng người lớn.</li><li>Interactive communication: Thông tin được trao đổi trực tiếp giữa 2 hoặc 1 nhóm người. Đây là cách trao đổi hiệu quả nhất</li></ul></li></ul><h3 id="d-Outputs">d. Outputs</h3><p><img src="/images/pmp/communication-management-plan.png" alt="communication-management-plan"></p><ul><li><p>Communications Management Plan</p></li><li><p>Project Management Plan Updates</p><ul><li>Stakeholder engagement plan</li></ul></li><li><p>Project Document Updates</p><ul><li>Project schedule</li><li>Stakeholder register: Stakeholder management strategy</li></ul></li></ul><h2 id="2-Manage-Communications">2. Manage Communications</h2><h3 id="a-Inputs-v2">a. Inputs</h3><ul><li><p>Work Performance Reports</p></li><li><p>Project management plan</p><ul><li>Stakeholder engagement plan</li><li>Communications management</li><li>Resource management plan</li></ul></li><li><p>Project documents</p><ul><li>Stakeholder register</li><li>Issue log</li><li>Change log</li><li>Risk report</li><li>Quality report</li><li>Lessons learned register</li></ul></li><li><p>Enterprise Environmental Factors</p></li><li><p>Organizational Process Assets</p></li></ul><h3 id="b-Manage-Communications">b. Manage Communications</h3><ul><li><p>Là quá trình đảm bảo kịp thời việc thu thập, lưu trữ, phân phối, xử lý thông tin theo đúng communications management plan</p></li><li><p>Lợi ích của process này là cho phép luồng thông tin hiệu quả giữa project team và stakeholders</p></li><li><p>Việc này được làm trong suốt dự án</p></li></ul><h3 id="c-Tools-Techniques-v2">c. Tools &amp; Techniques</h3><ul><li><p>Information Management Systems</p></li><li><p>Communication skills</p><ul><li>Meeting management</li><li>Active listening</li><li>Feedback</li><li>Nonverbal</li><li>Presentations</li><li>Conflict management</li></ul></li><li><p>Meeting Management</p></li><li><p>Effective communication</p><ul><li>Eye contact</li><li>Mirroring: Bắt chước</li><li>Written communication: 5Cs<ul><li>Clear</li><li>Concise</li><li>Correct</li><li>Coherent (mạc lạc)</li><li>Controlling</li></ul></li></ul></li><li><p>Performance reporting</p><ul><li>Status reports: describe where the project stands at a specific point in time</li><li>Variance report: Earned value report integrates scope, time, cost measures to assess project performance (EV, SV, CV, …)</li><li>Progress reports: describe what the project team has accomplished during a certain period of time</li><li>Trend reports: Examine project results over time to see if performance is improving or deteriorating</li><li>Forecasts: predict future project status and performance based on past information and trends</li></ul></li></ul><h3 id="d-Outputs-v2">d. Outputs</h3><ul><li><p>Project Communications</p></li><li><p>Project management plan updates</p><ul><li>Communications management plan.</li><li>Stakeholder engagement plan.</li></ul></li><li><p>Project documents updates</p><ul><li>Stakeholder register</li><li>Issue log,</li><li>Risk register</li><li>Project schedule,</li><li>Lessons learned register</li></ul></li><li><p>Organizational process assets updates</p><ul><li>Stakeholder notifications.</li><li>Project reports.</li><li>Project presentations.</li><li>Project records.</li><li>Feedback from stakeholders.</li><li>Lessons learned documentation.</li></ul></li></ul><h2 id="3-Control-Communications">3. Control Communications</h2><h3 id="a-Inputs-v3">a. Inputs</h3><ul><li><p>Work Performance Data</p></li><li><p>Project Management Plan</p><ul><li>Stakeholder Engagement Plan</li><li>Communication management Plan</li><li>Resource Management Plan</li></ul></li><li><p>Project Documents</p><ul><li>Project communications: Deliverables status, Schedule progress, and Costs incurred</li><li>Issue Log</li></ul></li><li><p>Enterprise Environmental Factors</p></li><li><p>Organizational Process Assets</p></li></ul><h3 id="b-Manage-Stakeholder-Engagement">b. Manage Stakeholder Engagement</h3><ul><li><p>Là quá trình đánh giá communication có như plan hay không? Có đúng người, đúng cách và đúng thời điểm hay không</p></li><li><p>Việc này cần được review định kỳ và nếu cần thiết thì sẽ thay đổi. Việc thay đổi sẽ diễn ra khi bắt đầu 1 phase mới hoặc khi stakeholder thay đổi cách liên lạc.</p></li></ul><h3 id="c-Tools-Techniques-v3">c. Tools &amp; Techniques</h3><ul><li><p>Observation/conversation</p></li><li><p>Stakeholder engagement assessment matrix</p></li><li><p>Information Management Systems</p></li></ul><h3 id="d-Outputs-v3">d. Outputs</h3><ul><li><p>Work Performance Information</p></li><li><p>Change requests</p></li><li><p>Project Management Plan updates</p><ul><li>Stakeholder Engagement Plan</li><li>Communication Management Plan</li></ul></li><li><p>Project documents updates</p><ul><li>Stakeholder register.</li><li>Issue log.</li><li>Lessons learned register.</li></ul></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Book </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> pmp </tag>
+            
+            <tag> Communication </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>PMP stakeholder</title>
       <link href="/Book/2023/06/14/stakeholder/"/>
       <url>/Book/2023/06/14/stakeholder/</url>
@@ -50,33 +77,6 @@
             <tag> pmp </tag>
             
             <tag> stakeholder </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>PMP Communication</title>
-      <link href="/Book/2023/06/14/communication/"/>
-      <url>/Book/2023/06/14/communication/</url>
-      
-        <content type="html"><![CDATA[<p><img src="/images/pmp/communication.png" alt="communication"></p><h2 id="1-Plan-Communication-Management">1. Plan Communication Management</h2><h3 id="a-Inputs">a. Inputs</h3><h3 id="b-Stakeholder-analysis">b. Stakeholder analysis</h3><h3 id="c-Tools-Techniques">c. Tools &amp; Techniques</h3><h3 id="d-Outputs">d. Outputs</h3><h2 id="2-Manage-Communications">2. Manage Communications</h2><h3 id="a-Inputs-v2">a. Inputs</h3><h3 id="b-Plan-Stakeholder-Engagement">b. Plan Stakeholder Engagement</h3><h3 id="c-Tools-Techniques-v2">c. Tools &amp; Techniques</h3><h3 id="d-Outputs-v2">d. Outputs</h3><h2 id="3-Control-Communications">3. Control Communications</h2><h3 id="a-Inputs-v3">a. Inputs</h3><h3 id="b-Manage-Stakeholder-Engagement">b. Manage Stakeholder Engagement</h3><h3 id="c-Tools-Techniques-v3">c. Tools &amp; Techniques</h3><h3 id="d-Outputs-v3">d. Outputs</h3>]]></content>
-      
-      
-      <categories>
-          
-          <category> Book </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> pmp </tag>
-            
-            <tag> Communication </tag>
             
         </tags>
       
